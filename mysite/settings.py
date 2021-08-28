@@ -85,8 +85,8 @@ DATABASES = {
         'NAME': 'myDjango',                   #2
         'USER': 'root',                       #3
         'PASSWORD': 'xmflrj',                 #4
-        'HOST': 'localhost',              #5
-        'PORT': '3456',                       #6
+        'HOST': '192.168.15.11',              #5
+        'PORT': '3306',                       #6
     }
 }
 
