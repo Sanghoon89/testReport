@@ -1,11 +1,23 @@
- {% extends "base.html" %} {% block title %}log_list.html{% endblock %} {% block content %}
+ {% extends "base.html" %} {% block title %}일일백업결과{% endblock %} {% block content %}
 
-<h1>TSM Scheduled Backup Result</h1>
+<h1>TSM 일일 백업 결과</h1>
 <br>
 
-<ul>
+  <table border=1, cellspacing=10, cellpadding=5>
     {% for Log in logs %}
-    <li>{{ Log }}</li>
+    <tr>
+      <th>{{Log.id}}</th>
+      <th>{{Log.backup_dt}}</th>
+      <th>{{Log.schedule_tm}}</th>
+      <th>{{Log.schedule_nm}}</th>
+      <th>{{Log.domain_nm}}</th>
+      <th>{{Log.nodename}}</th>
+      <th>{{Log.start_tm}}</th>
+      <th>{{Log.end_tm}}</th>
+      <th>{{Log.taken}}</th>
+      <th>{{Log.status}}</th>
+      <th>{{Log.returncode}}</th>
+    </tr>
     {% endfor %}
-</ul>
+  </table>
 {% endblock %}
