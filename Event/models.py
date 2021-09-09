@@ -12,7 +12,7 @@ class Log(models.Model):
     domain_nm = models.CharField('Domain Name', max_length=50)
     start_tm = models.CharField('Start Time', max_length=20)
     end_tm = models.CharField('End Time', max_length=20)
-    taken = model.IntegerField('Taken Time', default=0)
+    taken = models.IntegerField('Taken Time', default=0)
     status = models.CharField('Backup Result', max_length=20)
     returncode = models.IntegerField('Return Code')
     modify_dt = models.DateTimeField('MODIFY DATE', auto_now=True)
