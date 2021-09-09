@@ -39,8 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bookmark.apps.BookmarkConfig',    # 추가(startapp bookmark 에서 생성된 apps.py 에 정의된 클래스명)
     'blog.apps.BlogConfig',            # 추가(startapp blog 에서 생성된 apps.py에 정의된 클래스명)
-#    'taggit.apps.TaggitAppConfig',     # 추가 (Tag 달기)
-#    'taggit_templatetags2',            # 추가
+    'Event.apps.EventConfig'
 ]
 
 MIDDLEWARE = [
@@ -142,6 +141,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # 추가
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-#TAGGIT_CASE_INSENSITIVE = True  # 추가
-#TAGGIT_LIMIT = 50               # 추가
