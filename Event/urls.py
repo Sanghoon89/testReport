@@ -1,6 +1,6 @@
 
 from django.urls import path, re_path
-from blog import views
+from Event import views
 
 app_name='Event'
 urlpatterns = [
