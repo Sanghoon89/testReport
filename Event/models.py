@@ -2,6 +2,8 @@ from django.db import models
 
 # Create your models here.
 
+from django.urls import reverse
+
 class Log(models.Model):
     backup_dt = models.DateTimeField('Backup Date')
     schedule_tm = models.CharField('Scheduled Time', max_length=20)
@@ -25,6 +27,9 @@ class Log(models.Model):
 
     def __str__(self):
         return self.schedule_nm
+
+    def get_absolute_url(self):
+        return reverse('Event:Log_detail', args=(self.schedule_nm,))
 
     def get_previous(self):
         return self.get_previous_by_modify_dt()
