@@ -7,6 +7,6 @@ urlpatterns = [
 
     # Example: /Event/
     path('', views.LogLV.as_view(), name='index'),
-    path('<int:pk>/', views.LogDV.as_view(), name='detail'),
+#    path('<int:pk>/', views.LogDV.as_view(), name='detail'),
 
 ]
