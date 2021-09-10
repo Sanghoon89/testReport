@@ -26,7 +26,7 @@ class Log(models.Model):
         ordering = ('domain_nm','schedule_tm',)
 
     def __str__(self):
-        return self.backup_dt
+        return self.schedule_nm
 
     def get_absolute_url(self):
         return reverse('blog:post_detail', args=(self.slug,))
