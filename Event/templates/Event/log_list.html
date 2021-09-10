@@ -1,11 +1,11 @@
- {% extends "base.html" %} {% block title %}EventLog_list.html{% endblock %} {% block content %}
+ {% extends "base.html" %} {% block title %}Log_list.html{% endblock %} {% block content %}
 
 <h1>TSM Scheduled Backup Result</h1>
 <br>
 
 <ul>
     {% for Log in logs %}
-    <li><a href="{% url 'EventLog:detail' EventLog.id %}">{{ Log }}</a></li>
+    <li><a href="{% url 'Event:detail' EventLog.id %}">{{ Log }}</a></li>
     {% endfor %}
 </ul>
 {% endblock %}
