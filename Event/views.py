@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView
 from Event.models import Log
 
 class LogLV(ListView):
@@ -10,5 +10,3 @@ class LogLV(ListView):
     template_name = 'Event/log_list.html'
     context_object_name = 'logs'
     paginate_by = 30
-class LogDV(DetailView):
-    model = Log
