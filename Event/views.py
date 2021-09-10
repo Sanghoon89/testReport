@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 
 from django.views.generic import ListView, DetailView
-from event.models import Log
+from Event.models import Log
 
 class LogLV(ListView):
     model = Log
