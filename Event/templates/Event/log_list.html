@@ -5,9 +5,7 @@
 
 <ul>
     {% for Log in logs %}
-    <li>{{ Log }}</li>
-    /*
-    <li><a href="{% url 'Event:detail' EventLog.id %}">{{ Log }}</a></li>
-    */ {% endfor %}
+    <li><a href="{% url 'Log:detail' EventLog.id %}">{{ Log }}</a></li>
+    {% endfor %}
 </ul>
 {% endblock %}
