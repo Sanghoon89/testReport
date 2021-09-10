@@ -28,9 +28,6 @@ class Log(models.Model):
     def __str__(self):
         return self.schedule_nm
 
-    def get_absolute_url(self):
-        return reverse('blog:post_detail', args=(self.slug,))
-
     def get_previous(self):
         return self.get_previous_by_modify_dt()
 
