@@ -7,6 +7,8 @@ from Event.models import Log
 
 class LogLV(ListView):
     model = Log
-
+    template_name = 'Event/log_list.html'
+    context_object_name = 'logs'
+    paginate_by = 30
 class LogDV(DetailView):
     model = Log
