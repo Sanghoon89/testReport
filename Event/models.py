@@ -15,6 +15,8 @@ class Log(models.Model):
     taken = models.IntegerField('Taken Time', default=0)
     status = models.CharField('Backup Result', max_length=20)
     returncode = models.IntegerField('Return Code')
+    action = models.TextField('Action Content')
+    note = models.TextField('Note')
     modify_dt = models.DateTimeField('MODIFY DATE', auto_now=True)
 
     class Meta:
