@@ -2,8 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-from django.urls import reverse
-
 class Log(models.Model):
     backup_dt = models.DateTimeField('Backup Date')
     schedule_tm = models.CharField('Scheduled Time', max_length=20)
