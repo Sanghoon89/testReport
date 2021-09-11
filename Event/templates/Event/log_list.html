@@ -5,7 +5,7 @@
 
 <ul>
     {% for Log in logs %}
-    <li><a href="{% url 'Event:detail' EventLog.id %}">{{ Log.chedule_nm }}</a></li>
+    <li><a href="{% url 'Event:detail' EventLog.schedule_nm %}">{{ Log.chedule_nm }}</a></li>
     {% endfor %}
 </ul>
 {% endblock %}
