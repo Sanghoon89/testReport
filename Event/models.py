@@ -26,4 +26,4 @@ class Log(models.Model):
         ordering = ('domain_nm','schedule_tm',)
 
     def __str__(self):
-        return self.schedule_nm
+        return self.*
