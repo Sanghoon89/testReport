@@ -7,6 +7,5 @@ urlpatterns = [
 
     # Example: /Event/
     path('', views.LogLV.as_view(), name='index'),
-    path('detail/', views.LogDV.as_view(), name='detail'),
 
 ]
