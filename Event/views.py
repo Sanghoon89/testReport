@@ -13,3 +13,4 @@ class LogLV(ListView):
 
 class LogDV(DetailView):
     model = Log
+    template_name = 'Event/log_list.html'

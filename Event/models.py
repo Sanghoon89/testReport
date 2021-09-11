@@ -29,7 +29,7 @@ class Log(models.Model):
         return self.schedule_nm
 
     def get_absolute_url(self):
-        return reverse('Event:Log_detail', args=(self.schedule_nm,))
+        return reverse('Event:detail', args=(self.schedule_nm,))
 
     def get_previous(self):
         return self.get_previous_by_modify_dt()
