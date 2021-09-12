@@ -1,0 +1,3 @@
+insert into EventLog (backup_dt, schedule_tm, schedule_nm, nodename, domain_nm, start_tm, end_tm, taken, status, returncode, action, note,modify_dt) 
+select Date, Scheduled, ScheduleName, NodeName, Domain, Start, End, Taken, Status, ReturnCode, '', '','2021-08-31'
+ from tsmBackup.tsmEventLog where Date = '2021-08-31' ;

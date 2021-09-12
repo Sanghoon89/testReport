@@ -25,6 +25,7 @@ urlpatterns = [
     path('bookmark/', include('bookmark.urls')),   # 추가
     path('blog/', include('blog.urls')),           # 추가
     path('EventLog/', include('Event.urls')),
+    path('polls/', include('polls.urls')),
 
     # 기존 3개 라인 삭제후 APP_URLCONF로 이동
     ## class-based views
