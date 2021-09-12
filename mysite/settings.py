@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bookmark.apps.BookmarkConfig',    # 추가(startapp bookmark 에서 생성된 apps.py 에 정의된 클래스명)
     'blog.apps.BlogConfig',            # 추가(startapp blog 에서 생성된 apps.py에 정의된 클래스명)
-    'Event.apps.EventConfig'
+    'Event.apps.EventConfig',
+    'polls.apps.PollsConfig',
 ]
 
 MIDDLEWARE = [
