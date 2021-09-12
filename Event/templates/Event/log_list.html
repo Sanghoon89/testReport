@@ -3,21 +3,38 @@
 <h1>TSM 일일 백업 결과</h1>
 <br>
 
-  <table border=1, cellspacing=10, cellpadding=5>
+<table border=1, cellspacing=10, cellpadding=5>
+    <tr>
+        <th>번호</th>
+        <th>백업일자</th>
+        <th>스케줄시간</th>
+        <th>스케줄명</th>
+        <th>도메인명</th>
+        <th>노드명</th>
+        <th>시작시간</th>
+        <th>완료시간</th>
+        <th>소요시간</th>
+        <th>백업결과</th>
+        <th>RC</th>
+        <th>조치내용</th>
+        <th>비고</th>
+    </tr>
     {% for Log in logs %}
     <tr>
-      <th>{{Log.id}}</th>
-      <th>{{Log.backup_dt}}</th>
-      <th>{{Log.schedule_tm}}</th>
-      <th>{{Log.schedule_nm}}</th>
-      <th>{{Log.domain_nm}}</th>
-      <th>{{Log.nodename}}</th>
-      <th>{{Log.start_tm}}</th>
-      <th>{{Log.end_tm}}</th>
-      <th>{{Log.taken}}</th>
-      <th>{{Log.status}}</th>
-      <th>{{Log.returncode}}</th>
+        <th>{{Log.id}}</th>
+        <th>{{Log.backup_dt}}</th>
+        <th>{{Log.schedule_tm}}</th>
+        <th>{{Log.schedule_nm}}</th>
+        <th>{{Log.domain_nm}}</th>
+        <th>{{Log.nodename}}</th>
+        <th>{{Log.start_tm}}</th>
+        <th>{{Log.end_tm}}</th>
+        <th>{{Log.taken}}</th>
+        <th>{{Log.status}}</th>
+        <th>{{Log.returncode}}</th>
+        <th>{{Log.action}}</th>
+        <th>{{Log.note}}</th>
     </tr>
     {% endfor %}
-  </table>
+</table>
 {% endblock %}
