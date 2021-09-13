@@ -1,0 +1,7 @@
+{% extends "base.html" %} {% block title %}Polls Detail{% endblock %} {% block content %} {% if latest_question_list %}
+
+<h1>{{ question.question_text }}</h1>
+
+{% if error_message %}
+<p><strong>{{ error_message }}</strong></p>
+{% endif %} {% endblock %}

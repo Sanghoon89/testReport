@@ -12,3 +12,7 @@ def index(request):
 def detail(request):
     context = {'latest_question_list': latest_question_list}
     return render(request, 'polls/detail.html', context)
+
+def result(request):
+    context = {'latest_question_list': latest_question_list}
+    return render(request, 'polls/result.html', context)
