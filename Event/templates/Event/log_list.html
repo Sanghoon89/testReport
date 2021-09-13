@@ -21,7 +21,7 @@
     </tr>
     {% for Log in logs %}
     <tr>
-        <th>{{Log.id}}</th>
+        <th>{{forloop.counter}}</th>
         <th>{{Log.backup_dt}}</th>
         <th>{{Log.schedule_tm}}</th>
         <th>{{Log.schedule_nm}}</th>
