@@ -13,6 +13,6 @@ def detail(request):
     context = {'latest_question_list': latest_question_list}
     return render(request, 'polls/detail.html', context)
 
-def result(request):
+def results(request):
     context = {'latest_question_list': latest_question_list}
-    return render(request, 'polls/result.html', context)
+    return render(request, 'polls/results.html', context)
