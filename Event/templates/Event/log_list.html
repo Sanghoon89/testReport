@@ -3,22 +3,36 @@
 <h1>TSM 일일 백업 결과</h1>
 <br>
 
-<table border=1, cellspacing=10, cellpadding=5>
+  <div id="wrapper">
+    <div id="content-wrapper">
+      <div class="container-fluid">
+
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i>
+            All Server List</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
     <tr>
         <th>번호</th>
         <th>백업일자</th>
-        <th>스케줄시간</th>
+        <th>스케줄</th>
         <th>스케줄명</th>
         <th>도메인명</th>
         <th>노드명</th>
         <th>시작시간</th>
         <th>완료시간</th>
-        <th>소요시간</th>
+        <th>소요</th>
         <th>백업결과</th>
         <th>RC</th>
         <th>조치내용</th>
         <th>비고</th>
     </tr>
+    </thead>
+    <tbody>
     {% for Log in logs %}
     <tr>
         <th>{{forloop.counter}}</th>
@@ -36,5 +50,17 @@
         <th>{{Log.note}}</th>
     </tr>
     {% endfor %}
-</table>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+    </div>
+    <!-- /.content-wrapper -->
+  </div>
+  <!-- /#wrapper -->
+
 {% endblock %}
