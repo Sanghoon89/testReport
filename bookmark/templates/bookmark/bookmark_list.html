@@ -5,7 +5,7 @@
 
 <ul>
     {% for bookmark in object_list %}
-    <li><a href="{% url 'bookmark:detail' bookmark.id %}" target='_blank'>{{ bookmark }}</a></li>
+    <li><a href="{% url 'bookmark:detail' bookmark.id %}">{{ bookmark }}</a></li>
     {% endfor %}
 </ul>
 {% endblock %}
