@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 
-from polls.models import Question
+from polls.models import Choice, Question
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
