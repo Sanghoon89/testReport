@@ -4,4 +4,14 @@
 
 {% if error_message %}
 <p><strong>{{ error_message }}</strong></p>
-{% endif %} {% endblock %}
+{% endif %}
+
+<form action={% url 'polls:vote' questionid %} " method="post ">
+    {% csrf_token %}
+    {% for choice in question.choice_set.all %}
+        <input type="radio " name="choice " id="choice{{ forloop.counter }} " value="{{choice.id}} " />
+        <label for="coice{{ forloop.counter }} ">{{ coice.coice_text }}</label><br />
+    {% endfor %}
+    <input type="submit " value="Vote " /> </form>
+
+    {% endblock %}
