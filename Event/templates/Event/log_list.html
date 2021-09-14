@@ -16,14 +16,13 @@
             <!-- DataTables Example -->
             <div class="card mb-3">
                 <div class="card-header">
-                    <i class="fas fa-table"></i>{{logs.1}}</div>
+                    <i class="fas fa-table"></i>{{logs.1.backup_dt|date:'Y-m-d(D)'}}</div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <td>번호</td>
-                                    <th>백업일자</th>
                                     <th>스케줄</th>
                                     <th>스케줄명</th>
                                     <th>도메인명</th>
@@ -41,7 +40,6 @@
                                 {% for Log in logs %}
                                 <tr>
                                     <td>{{forloop.counter}}</td>
-                                    <td>{{Log.backup_dt}}</td>
                                     <th>{{Log.schedule_tm}}</th>
                                     <th>{{Log.schedule_nm}}</th>
                                     <th>{{Log.domain_nm}}</th>
