@@ -1,5 +1,13 @@
 {% extends "base.html" %} {% block title %}일일백업결과{% endblock %} {% block content %}
 
+<head>
+    <style>
+        td {
+            text-align: center;
+        }
+    </style>
+</head>
+
 <h1>TSM 일일 백업 결과</h1>
 <br>
 
@@ -10,13 +18,13 @@
             <!-- DataTables Example -->
             <div class="card mb-3">
                 <div class="card-header">
-                    <i class="fas fa-table"></i>{{logs.backup_dt}}</div>
+                    <i class="fas fa-table"></i>{{logs.1}}</div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>번호</th>
+                                    <td>번호</td>
                                     <th>백업일자</th>
                                     <th>스케줄</th>
                                     <th>스케줄명</th>
@@ -34,8 +42,8 @@
                             <tbody>
                                 {% for Log in logs %}
                                 <tr>
-                                    <th>{{forloop.counter}}</th>
-                                    <th>{{Log.backup_dt}}</th>
+                                    <td>{{forloop.counter}}</td>
+                                    <td>{{Log.backup_dt}}</td>
                                     <th>{{Log.schedule_tm}}</th>
                                     <th>{{Log.schedule_nm}}</th>
                                     <th>{{Log.domain_nm}}</th>
