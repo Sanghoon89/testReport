@@ -5,6 +5,10 @@
     td {
         text-align: center;
     }
+    
+    #lf {
+        text-align: left;
+    }
 </style>
 
 <h1>TSM 일일 백업 결과</h1>
@@ -43,7 +47,7 @@
                                 <tr>
                                     <td>{{forloop.counter}}</td>
                                     <td>{{Log.schedule_tm}}</td>
-                                    <td sytle="text-align:left">{{Log.schedule_nm}}</td>
+                                    <td id="lf">{{Log.schedule_nm}}</td>
                                     <td>{{Log.domain_nm}}</td>
                                     <td>{{Log.nodename}}</td>
                                     <td>{{Log.start_tm}}</td>
