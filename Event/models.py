@@ -23,7 +23,7 @@ class Log(models.Model):
         verbose_name = 'Log'
         verbose_name_plural = 'logs'
         db_table = 'EventLog'
-        ordering = ('domain_nm','schedule_tm',)
+        ordering = ('-backup_dt','domain_nm','schedule_tm',)
 
     def __str__(self):
         return f'{self.schedule_tm} {self.schedule_nm} {self.nodename} {self.domain_nm} {self.start_tm}'
