@@ -1,7 +1,8 @@
 {% extends "base.html" %} {% block title %}일일백업결과{% endblock %} {% block content %}
 
 <style>
-    td {
+    th,
+    th {
         text-align: center;
     }
 </style>
@@ -23,9 +24,11 @@
                             {{logs.1}}
                             <thead>
                                 <tr>
-                                    <td>번호</td>
+                                    <th>번호</th>
                                     <th>스케줄</th>
-                                    <th>스케줄명</th>
+                                    <th>
+                                        <left>스케줄명</left>
+                                    </th>
                                     <th>도메인명</th>
                                     <th>노드명</th>
                                     <th>시작시간</th>
@@ -41,17 +44,17 @@
                                 {% for Log in logs %}
                                 <tr>
                                     <td>{{forloop.counter}}</td>
-                                    <th>{{Log.schedule_tm}}</th>
-                                    <th>{{Log.schedule_nm}}</th>
-                                    <th>{{Log.domain_nm}}</th>
-                                    <th>{{Log.nodename}}</th>
-                                    <th>{{Log.start_tm}}</th>
-                                    <th>{{Log.end_tm}}</th>
-                                    <th>{{Log.taken}}</th>
-                                    <th>{{Log.status}}</th>
-                                    <th>{{Log.returncode}}</th>
-                                    <th>{{Log.action}}</th>
-                                    <th>{{Log.note}}</th>
+                                    <td>{{Log.schedule_tm}}</td>
+                                    <td>{{Log.schedule_nm}}</td>
+                                    <td>{{Log.domain_nm}}</td>
+                                    <td>{{Log.nodename}}</td>
+                                    <td>{{Log.start_tm}}</td>
+                                    <td>{{Log.end_tm}}</td>
+                                    <td>{{Log.taken}}</td>
+                                    <td>{{Log.status}}</td>
+                                    <td>{{Log.returncode}}</td>
+                                    <td>{{Log.action}}</td>
+                                    <td>{{Log.note}}</td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
