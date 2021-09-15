@@ -47,7 +47,7 @@
                                 {% for Log in logs %}
                                 <tr>
                                     <td>{{forloop.counter}}</td>
-                                    <td>{{Log.backup_dt|date:'m-d(D)'}}</td>
+                                    <td>{{Log.backup_dt|date:'m-d'}}</td>
                                     <td>{{Log.schedule_tm}}</td>
                                     <td id="lf">{{Log.schedule_nm}}</td>
                                     <td>{{Log.domain_nm}}</td>
