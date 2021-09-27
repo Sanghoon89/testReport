@@ -15,7 +15,7 @@ class Keep(models.Model):
         verbose_name = 'Keep'
         verbose_name_plural = 'keeps'
         db_table = 'RemoteKeep'
-        ordering = ('-check_dt','pool_nm','volume_nm',)
+        ordering = ('-check_dt','-pool_nm','volume_nm',)
 
     def __str__(self):
         return self.volume_nm
