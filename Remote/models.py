@@ -18,8 +18,7 @@ class Keep(models.Model):
         ordering = ('-check_dt','pool_nm','volume_nm',)
 
     def __str__(self):
-        return f'{self.schedule_tm} {self.schedule_nm} {self.nodename} {self.domain_nm} {self.start_tm}'
-#        return '{0} {1}'.format(self.schedule_tm, self.schedule_nm)
+        return self.volume_nm
 
     def __date__ (self):
         return self.check_dt
