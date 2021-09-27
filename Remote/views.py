@@ -1,4 +1,5 @@
 # from django.db.models.query import _QuerySet
+from django.db.models.query import QuerySet
 from django.shortcuts import render
 
 # Create your views here.
@@ -12,9 +13,9 @@ class KeepLV(ListView):
     context_object_name = 'keeps'
 
     def get_queryset(self):
-        checkin = Keep.objects.order_by('-check_dt')
+        queryset = Keep.objects.order_by('-check_dt')
 #        checkout = Keep.objects.filter(check_dt='2021-09-16')
-        return checkin
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super(KeepLV, self).get_context_data(**kwargs)
