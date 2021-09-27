@@ -11,7 +11,7 @@
     }
 </style>
 
-<h1>TSM 일일 소산 대상</h1>
+<h1>일일 소산 대상</h1>
 <br>
 
 <div id="wrapper">
@@ -21,7 +21,7 @@
             <!-- DataTables Example -->
             <div class="card mb-3">
                 <div class="card-header">
-                    <i class="fas fa-table"></i><strong> {{keeps.1.check_dt|date:'Y-m-d(D)'}}</strong></div>
+                    <i class="fas fa-table"></i><strong> {{keeps.1.check_dt|date:'Y-m-d(D)'}} - Check-in</strong></div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -32,6 +32,7 @@
                                     <th>테입명</th>
                                     <th>풀명</th>
                                     <th>보관주기</th>
+                                    <th>만료일자</th>
                                     <th>입고확인</th>
                                     <th>출고확인</th>
                                 </tr>
@@ -41,9 +42,10 @@
                                 <tr>
                                     <td>{{forloop.counter}}</td>
                                     <td>{{Keep.check_dt|date:'Y-m-d(D)'}}</td>
-                                    <td id="lf">{{Keep.volume_nm}}</td>
+                                    <td>{{Keep.volume_nm}}</td>
                                     <td>{{Keep.pool_nm}}</td>
                                     <td>{{Keep.cycle}}</td>
+                                    <td>{{Keep.due_dt|date:'Y-m-d(D)'}}</td>
                                     <td>{{Keep.safein_chk}}</td>
                                     <td>{{Keep.safeout_chk}}</td>
                                 </tr>

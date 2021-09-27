@@ -19,6 +19,3 @@ class Keep(models.Model):
 
     def __str__(self):
         return self.volume_nm
-
-    def __date__ (self):
-        return self.check_dt
