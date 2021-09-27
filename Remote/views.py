@@ -15,6 +15,7 @@ class KeepLV(ListView):
         context = super(KeepLV, self).get_context_data(**kwargs)
         context['checkin'] = Keep.objects.filter(due_dt='2021-09-30')
         context['checkout'] = Keep.objects.filter(check_dt='2021-09-16')
+        context['srcpool'] = Keep.objects.filter(pool_nm='srcpool', due_dt='2021-09-16')
         return context
 
     def __str__ (self):
