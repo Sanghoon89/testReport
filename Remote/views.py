@@ -15,5 +15,10 @@ class KeepLV(ListView):
 #        checkout = Keep.objects.filter(check_dt='2021-09-16')
         return checkin #, checkout
 
+    def get_context_data(self, **kwargs):
+        context = super(KeepLV, self).get_context_data(**kwargs)
+#        context['bar_list'] = context['foo_list'].filter(Country=64)
+        return context
+
     def __str__ (self):
         return self

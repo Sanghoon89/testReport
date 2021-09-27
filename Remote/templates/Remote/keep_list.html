@@ -21,11 +21,11 @@
             <!-- DataTables Example -->
             <div class="card mb-3">
                 <div class="card-header">
-                    <i class="fas fa-table"></i><strong> {{checkin.1.check_dt|date:'Y-m-d(D)'}} - Check-in</strong></div>
+                    <i class="fas fa-table"></i><strong> {{context.1.check_dt|date:'Y-m-d(D)'}} - Check-in</strong></div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            List : {{checkin}}
+                            List : {{context}}
                             <thead>
                                 <tr>
                                     <th>번호</th>
@@ -39,7 +39,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for Keep in checkin %}
+                                {% for Keep in context %}
                                 <tr>
                                     <td>{{forloop.counter}}</td>
                                     <td>{{Keep.check_dt|date:'Y-m-d(D)'}}</td>
