@@ -18,7 +18,7 @@ class KeepLV(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(KeepLV, self).get_context_data(**kwargs)
-        context['bar_list'] = context['keeps_list'].filter(due_dt='2021-09-30')
+        context['bar_list'] = context['keep_list'].filter(due_dt='2021-09-30')
         return context
 
     def __str__ (self):
