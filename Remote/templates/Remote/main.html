@@ -1,0 +1,91 @@
+{% extends "base.html" %} {% block title %}일일 소산{% endblock %} {% block content %} {% load static %}
+
+<style>
+    th,
+    td {
+        text-align: center;
+    }
+    
+    #lf {
+        text-align: left;
+    }
+</style>
+
+<h1>TSM 일일 소산 대상</h1>
+<br>
+
+<div id="wrapper">
+    <div id="content-wrapper">
+        <div class="container-fluid">
+
+            <!-- DataTables Example -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i><strong> {{keeps.1.check_dt|date:'Y-m-d(D)'}}</strong></div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>번호</th>
+                                    <th>소산일자</th>
+                                    <th>테입명</th>
+                                    <th>풀명</th>
+                                    <th>보관주기</th>
+                                    <th>입고확인</th>
+                                    <th>출고확인</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for Keep in keeps %}
+                                <tr>
+                                    <td>{{forloop.counter}}</td>
+                                    <td>{{Keep.check_dt|date:'Y-m-d(D)'}}</td>
+                                    <td id="lf">{{Keep.volume_nm}}</td>
+                                    <td>{{Keep.pool_nm}}</td>
+                                    <td>{{Keep.cycle}}</td>
+                                    <td>{{Keep.safein_chk}}</td>
+                                    <td>{{Keep.safeout_chk}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /.content-wrapper -->
+</div>
+<!-- /#wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+
+
+<!-- Bootstrap core JavaScript-->
+<script src='{% static "vendor/jquery/jquery.min.js" %}'></script>
+<script src='{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
+
+<!-- Core plugin JavaScript-->
+<script src='{% static "vendor/jquery-easing/jquery.easing.min.js" %}'></script>
+
+<!-- Page level plugin JavaScript-->
+<script src='{% static "vendor/chart.js/Chart.min.js" %}'></script>
+<script src='{% static "vendor/datatables/jquery.dataTables.js" %}'></script>
+<script src='{% static "vendor/datatables/dataTables.bootstrap4.js" %}'></script>
+
+<!-- Custom scripts for all pages-->
+<script src='{% static "js/sb-admin.min.js" %}'></script>
+
+<!-- Demo scripts for this page-->
+<script src='{% static "js/demo/datatables-demo.js" %}'></script>
+<script src='{% static "js/demo/chart-area-demo.js" %}'></script>
+
+
+{% endblock %}
