@@ -6,6 +6,14 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from Remote.models import Keep
 
+from datetime import date, timedelta
+
+## 날짜
+locale.setlocale(locale.LC_ALL,'')
+TODAY = date.today().strftime('%Y-%m-%d')
+YESTER = date.today() - timedelta(1)
+YESTERDAY = YESTER.strftime('%Y-%m-%d')
+
 class KeepLV(ListView):
     model = Keep
     template_name = 'Remote/keep_list.html'
@@ -13,9 +21,9 @@ class KeepLV(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(KeepLV, self).get_context_data(**kwargs)
-        context['checkin'] = Keep.objects.filter(due_dt='2021-09-16')
-        context['checkout'] = Keep.objects.filter(check_dt='2021-09-15')
-        imsi = Keep.objects.filter(pool_nm='srcpool', due_dt__gte='2021-09-16')
+        context['checkin'] = Keep.objects.filter(due_dt=TODAY)
+        context['checkout'] = Keep.objects.filter(check_dt=YESTERDAY)
+        imsi = Keep.objects.filter(pool_nm='srcpool', due_dt__gte=TODAY)
         context['srcpool'] = imsi.order_by('due_dt')
         return context
 
