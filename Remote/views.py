@@ -10,5 +10,10 @@ class KeepLV(ListView):
     template_name = 'Remote/keep_list.html'
     context_object_name = 'keeps'
 
+    def get_queryset(self):
+        chkin = Keep.objects.filter(due_dt = '2021-09-30')
+        chkout = Keep.objects.filter(check_dt = '2021-09-16')
+        return checkin, checkout
+
     def __str__ (self):
         return self
