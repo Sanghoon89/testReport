@@ -7,6 +7,7 @@ from django.views.generic import ListView, DetailView
 from Remote.models import Keep
 
 from datetime import date, timedelta
+import locale
 
 ## 날짜
 locale.setlocale(locale.LC_ALL,'')
