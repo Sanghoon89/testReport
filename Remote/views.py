@@ -1,4 +1,4 @@
-from django.db.models.query import _QuerySet
+# from django.db.models.query import _QuerySet
 from django.shortcuts import render
 
 # Create your views here.
