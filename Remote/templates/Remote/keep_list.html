@@ -110,8 +110,6 @@
                                     <th>풀명</th>
                                     <th>보관주기</th>
                                     <th>만료일자</th>
-                                    <th>입고확인</th>
-                                    <th>출고확인</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -123,8 +121,6 @@
                                     <td>{{Keep.pool_nm}}</td>
                                     <td>{{Keep.cycle}}</td>
                                     <td>{{Keep.due_dt|date:'Y-m-d(D)'}}</td>
-                                    <td>{{Keep.safein_chk}}</td>
-                                    <td>{{Keep.safeout_chk}}</td>
                                 </tr>
                                 {% endfor %}
                             </tbody>

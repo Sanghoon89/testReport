@@ -1,4 +1,3 @@
-from django.db.models.query import QuerySet
 from django.shortcuts import render
 
 # Create your views here.
@@ -22,7 +21,8 @@ class KeepLV(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(KeepLV, self).get_context_data(**kwargs)
-        context['checkin'] = Keep.objects.filter(due_dt=TODAY)
+        imsi = Keep.objects.filter(due_dt=TODAY)
+        context['checkin'] = imsi.order_by('check_dt')
         context['checkout'] = Keep.objects.filter(check_dt=YESTERDAY)
         imsi = Keep.objects.filter(pool_nm='srcpool', due_dt__gte=TODAY)
         context['srcpool'] = imsi.order_by('due_dt')
