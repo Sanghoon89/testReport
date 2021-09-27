@@ -11,13 +11,13 @@ class KeepLV(ListView):
     context_object_name = 'keeps'
 
     def get_queryset(self):
-        checkin = Keep.objects.filter(due_dt='2021-09-30')
+        checkin = Keep.objects.order_by('-check_dt')
 #        checkout = Keep.objects.filter(check_dt='2021-09-16')
         return checkin #, checkout
 
     def get_context_data(self, **kwargs):
         context = super(KeepLV, self).get_context_data(**kwargs)
-#        context['bar_list'] = context['foo_list'].filter(Country=64)
+        context['bar_list'] = context['foo_list'].filter(due_dt='2021-09-30')
         return context
 
     def __str__ (self):
