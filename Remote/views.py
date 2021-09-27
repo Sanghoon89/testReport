@@ -11,8 +11,8 @@ class KeepLV(ListView):
     context_object_name = 'keeps'
 
     def get_queryset(self):
-        checkin = Keep.objects.filter(due_dt = '2021-09-30')
-        checkout = Keep.objects.filter(check_dt = '2021-09-16')
+        checkin = Keep.objects.filter(due_dt='2021-09-30')
+        checkout = Keep.objects.filter(check_dt='2021-09-16')
         return checkin, checkout
 
     def __str__ (self):
