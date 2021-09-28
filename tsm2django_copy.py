@@ -9,7 +9,6 @@ from datetime import datetime, date, timedelta
 locale.setlocale(locale.LC_ALL,'')
 YESTERDAY = date.today() - timedelta(1)
 DATE = YESTERDAY.strftime('%Y-%m-%d')
-DATE = '2021-09-16'
 
 SQL_1 = f"select * from tsmEventLog where Date = '{DATE}' ORDER BY Date, Domain, Scheduled "
 TableName_1 = "EventLog"
@@ -22,27 +21,17 @@ Columns_2 = "check_dt, volume_nm, pool_nm, cycle, due_dt, safein_chk, safeout_ch
 INSQL_2 = f"INSERT INTO {TableName_2} ({Columns_2}) VALUES (%s, %s, %s, %s, %s, 'X', 'X')"
 
 
-conn = pymysql.connect(host='192.168.15.11', user='root', password='xmflrj', db='tsmBackup', charset='utf8')
-#conn = pymysql.connect(host='180.70.98.216', user='root', password='collect123$', db='tsmbackup', charset='utf8')
+#conn = pymysql.connect(host='192.168.15.11', user='root', password='xmflrj', db='tsmBackup', charset='utf8')
+conn = pymysql.connect(host='180.70.98.216', user='root', password='collect123$', db='tsmbackup', charset='utf8')
 curs = conn.cursor()
-
 for i in range(1,3):
     curs.execute(globals()[f'SQL_{i}'])
     globals()[f'RESULT_{i}'] = curs.fetchall()
-
 conn.close()
 
 
 for i in range(1,3):
-    for VALUES in list(globals()[f'RESULT_{i}']) :
-        print (VALUES)
-
-print ("The End.")
-exit ()
-
-"""
     for VALUES in list(globals()[f'RESULT_{i}']):
-
         conn = pymysql.connect(host='localhost', user='root', password='xmflrj', db='myDjango', port=3456, charset='utf8')
 
         try:
@@ -60,4 +49,3 @@ exit ()
 
         finally:
             conn.close()
-"""
