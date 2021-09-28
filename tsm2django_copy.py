@@ -9,6 +9,7 @@ from datetime import datetime, date, timedelta
 locale.setlocale(locale.LC_ALL,'')
 YESTERDAY = date.today() - timedelta(1)
 DATE = YESTERDAY.strftime('%Y-%m-%d')
+DATE = '2021-09-16'
 
 SQL_1 = f"select * from tsmEventLog where Date = '{DATE}' ORDER BY Date, Domain, Scheduled "
 TableName_1 = "EventLog"
