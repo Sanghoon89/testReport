@@ -26,13 +26,14 @@ conn = pymysql.connect(user='root', password='xmflrj', db='tsmBackup', charset='
 curs = conn.cursor()
 
 for i in range(1,3):
+    print (globals()[f'SQL_{i}'])
     curs.execute(globals()[f'SQL_{i}'])
     globals()[f'RESULT_{i}'] = curs.fetchall()
 
 conn.close()
 
 for i in range(1,3):
-    for VALUES in list(globals()[f'RESULT_{i}']):
+    for VALUES in globals()[f'RESULT_{i}']:
         print (VALUES)
 exit()
 
