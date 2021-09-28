@@ -21,7 +21,7 @@ Columns_2 = "check_dt, volume_nm, pool_nm, cycle, due_dt, safein_chk, safeout_ch
 INSQL_2 = f"INSERT INTO {TableName_2} ({Columns_2}) VALUES (%s, %s, %s, %s, %s, 'X', 'X')"
 
 for i in range(1,3):
-    print (SQL_{i})
+    print (SQL_i)
 
 exit ()
 
