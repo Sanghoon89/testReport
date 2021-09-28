@@ -20,63 +20,38 @@ TableName_2 = "RemoteKeep"
 Columns_2 = "check_dt, volume_nm, pool_nm, cycle, due_dt, safein_chk, safeout_chk"
 INSQL_2 = f"INSERT INTO {TableName_2} ({Columns_2}) VALUES (%s, %s, %s, %s, %s, 'X', 'X')"
 
-for i in range(1,3):
-    print (globals()[f'SQL_{i}'])
 
-exit()
-
-conn = pymysql.connect(host='180.70.98.216', user='root', password='collect123$', db='tsmbackup', charset='utf8')
+conn = pymysql.connect(user='root', password='xmflrj', db='tsmBackup', charset='utf8')
+#conn = pymysql.connect(host='180.70.98.216', user='root', password='collect123$', db='tsmbackup', charset='utf8')
 curs = conn.cursor()
 
-curs.execute(SQL_1)
-RESULT_1 = curs.fetchall()
-
-curs.execute(SQL_2)
-RESULT_2 = curs.fetchall()
+for i in range(1,3):
+    curs.execute(globals()[f'SQL_{i}'])
+    globals()[f'RESULT_{i}'] = curs.fetchall()
 
 conn.close()
 
 for i in range(1,3):
-    for VALUES in list(RESULT_i):
+    for VALUES in list(globals()[f'RESULT_{i}']):
         print (VALUES)
+exit()
 
+    for VALUES in list(globals()[f'RESULT_{i}']):
 
-for VALUES in list(RESULT_1):
+        conn = pymysql.connect(host='localhost', user='root', password='xmflrj', db='myDjango', port=3456, charset='utf8')
 
-    conn = pymysql.connect(host='localhost', user='root', password='xmflrj', db='myDjango', port=3456, charset='utf8')
+        try:
+            with conn.cursor() as cursor:
+                print (globals()[f'INSQL_{i}'])
+                cursor.execute(globals()[f'INSQL_{i}'], VALUES)
 
-    try:
-        with conn.cursor() as cursor:
-            print (INSQL_1)
-            cursor.execute(INSQL_1, VALUES)
+            conn.commit()
 
-        conn.commit()
+        except pymysql.err.IntegrityError as e :
+            print ("Error: {}".format(e))
 
-    except pymysql.err.IntegrityError as e :
-        print ("Error: {}".format(e))
+    #    except MySQLdb.Error as e :
+    #        pass
 
-#    except MySQLdb.Error as e :
-#        pass
-
-    finally:
-        conn.close()
-
-for VALUES in list(RESULT_2):
-    
-    conn = pymysql.connect(host='localhost', user='root', password='xmflrj', db='myDjango', port=3456, charset='utf8')
-
-    try:
-        with conn.cursor() as cursor:
-            print (INSQL_2)
-            cursor.execute(INSQL_2, VALUES)
-
-        conn.commit()
-
-    except pymysql.err.IntegrityError as e :
-        print ("Error: {}".format(e))
-
-#    except MySQLdb.Error as e :
-#        pass
-
-    finally:
-        conn.close()
+        finally:
+            conn.close()
