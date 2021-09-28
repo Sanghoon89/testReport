@@ -23,7 +23,7 @@ INSQL_2 = f"INSERT INTO {TableName_2} ({Columns_2}) VALUES (%s, %s, %s, %s, %s, 
 for i in range(1,3):
     print (SQL_i)
 
-exit ()
+exit()
 
 conn = pymysql.connect(host='180.70.98.216', user='root', password='collect123$', db='tsmbackup', charset='utf8')
 curs = conn.cursor()
@@ -40,7 +40,6 @@ for i in range(1,3):
     for VALUES in list(RESULT_{i}):
         print (VALUES)
 
-exit ()
 
 for VALUES in list(RESULT_1):
 
