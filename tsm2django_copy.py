@@ -21,7 +21,7 @@ Columns_2 = "check_dt, volume_nm, pool_nm, cycle, due_dt, safein_chk, safeout_ch
 INSQL_2 = f"INSERT INTO {TableName_2} ({Columns_2}) VALUES (%s, %s, %s, %s, %s, 'X', 'X')"
 
 
-conn = pymysql.connect(user='root', password='xmflrj', db='tsmBackup', charset='utf8')
+conn = pymysql.connect(host='192.168.15.11', user='root', password='xmflrj', db='tsmBackup', charset='utf8')
 #conn = pymysql.connect(host='180.70.98.216', user='root', password='collect123$', db='tsmbackup', charset='utf8')
 curs = conn.cursor()
 
