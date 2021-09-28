@@ -36,8 +36,9 @@ for i in range(1,3):
     for VALUES in globals()[f'RESULT_{i}']:
         print (VALUES)
 
-    quit ()
+exit ()
 
+"""
     for VALUES in list(globals()[f'RESULT_{i}']):
 
         conn = pymysql.connect(host='localhost', user='root', password='xmflrj', db='myDjango', port=3456, charset='utf8')
@@ -57,3 +58,4 @@ for i in range(1,3):
 
         finally:
             conn.close()
+"""
