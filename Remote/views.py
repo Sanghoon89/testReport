@@ -24,7 +24,7 @@ class KeepLV(ListView):
         imsi = Keep.objects.filter(due_dt=TODAY)
         context['checkin'] = imsi.order_by('check_dt')
         context['checkout'] = Keep.objects.filter(check_dt=YESTERDAY)
-        imsi = Keep.objects.filter(pool_nm='srcpool', due_dt__gte=TODAY)
+        imsi = Keep.objects.filter(pool_nm='srcpool', due_dt__gt=TODAY)
         context['srcpool'] = imsi.order_by('due_dt')
         return context
 
