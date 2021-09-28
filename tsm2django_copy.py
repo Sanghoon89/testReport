@@ -1,7 +1,7 @@
 #!/usr/service/VENV/bin/python
 
 import pymysql.cursors
-import requests, locale
+import locale
 
 from datetime import datetime, date, timedelta
 
