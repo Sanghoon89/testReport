@@ -10,8 +10,6 @@ locale.setlocale(locale.LC_ALL,'')
 YESTERDAY = date.today() - timedelta(1)
 DATE = YESTERDAY.strftime('%Y-%m-%d')
 
-DATE = "2021-09-16"
-
 SQL_1 = f"select * from tsmEventLog where Date = '{DATE}' ORDER BY Date, Domain, Scheduled "
 TableName_1 = "EventLog"
 Columns_1 = "backup_dt,schedule_tm,schedule_nm,nodename,domain_nm,start_tm,end_tm,taken,status,returncode,action,note,modify_dt"
@@ -28,14 +26,14 @@ conn = pymysql.connect(host='192.168.15.11', user='root', password='xmflrj', db=
 curs = conn.cursor()
 
 for i in range(1,3):
-    print (globals()[f'SQL_{i}'])
     curs.execute(globals()[f'SQL_{i}'])
     globals()[f'RESULT_{i}'] = curs.fetchall()
 
 conn.close()
 
+
 for i in range(1,3):
-    for VALUES in globals()[f'RESULT_{i}'] :
+    for VALUES in list(globals()[f'RESULT_{i}']) :
         print (VALUES)
 
 print ("The End.")
