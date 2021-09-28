@@ -35,7 +35,8 @@ conn.close()
 for i in range(1,3):
     for VALUES in globals()[f'RESULT_{i}']:
         print (VALUES)
-exit()
+
+quit ()
 
     for VALUES in list(globals()[f'RESULT_{i}']):
 
