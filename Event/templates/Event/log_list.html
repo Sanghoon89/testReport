@@ -21,7 +21,7 @@
             <!-- DataTables Example -->
             <div class="card mb-3">
                 <div class="card-header">
-                    <i class="fas fa-table"></i><strong> {{logs.1.backup_dt|date:'Y-m-d(D)'}}</strong></div>
+                    <i class="fas fa-table"></i><strong> {{daylist.1.backup_dt|date:'Y-m-d(D)'}}</strong></div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -43,7 +43,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for Log in logs %}
+                                {% for Log in daylist %}
                                 <tr>
                                     <td>{{forloop.counter}}</td>
                                     <td>{{Log.backup_dt|date:'m-d'}}</td>
