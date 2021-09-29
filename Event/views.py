@@ -13,7 +13,7 @@ locale.setlocale(locale.LC_ALL,'')
 YESTER = date.today() - timedelta(1)
 YESTERDAY = YESTER.strftime('%Y-%m-%d')
 
-
+YESTERDAY='2021-09-16'
 class LogLV(ListView):
     model = Log
     template_name = 'Event/log_list.html'
