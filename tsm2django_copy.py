@@ -36,7 +36,6 @@ for i in range(1,3):
 
         try:
             with conn.cursor() as cursor:
-                print (globals()[f'INSQL_{i}'])
                 cursor.execute(globals()[f'INSQL_{i}'], VALUES)
 
             conn.commit()
