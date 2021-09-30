@@ -43,7 +43,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for Log in daylist %}
+                                {% for Log in monthlist %}
                                 <tr>
                                     <td>{{forloop.counter}}</td>
                                     <td>{{Log.backup_dt|date:'m-d'}}</td>

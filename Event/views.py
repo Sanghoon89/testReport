@@ -12,6 +12,8 @@ import locale
 locale.setlocale(locale.LC_ALL,'')
 YESTER = date.today() - timedelta(1)
 YESTERDAY = YESTER.strftime('%Y-%m-%d')
+YEAR = YESTER.strftime('%Y')
+MONTH = YESTER.strftime('%m')
 
 YESTERDAY='2021-09-16'
 class LogLV(ListView):
@@ -22,6 +24,7 @@ class LogLV(ListView):
     def get_context_data(self, **kwargs):
         context = super(LogLV, self).get_context_data(**kwargs)
         context['daylist'] = Log.objects.filter(backup_dt=YESTERDAY)
+        context['monthlist'] = Log.objects.filter(backup_dt__year=YEAR, backup_dt__month=MONTH)
         return context
 
     def __str__ (self):
