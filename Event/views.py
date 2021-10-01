@@ -25,8 +25,7 @@ class LogLV(ListView):
         context = super(LogLV, self).get_context_data(**kwargs)
         context['daylist'] = Log.objects.filter(backup_dt=YESTERDAY)
         context['monthlist'] = Log.objects.filter(backup_dt__year=YEAR, backup_dt__month=MONTH)
-        imsi = Log.objects.dates('backup_dt', 'month')
-        context['months'] = imsi.strftime('%Y-%m')
+        context['months'] = Log.objects.dates('backup_dt', 'month')
         return context
 
     def __str__ (self):
