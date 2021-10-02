@@ -5,7 +5,7 @@ from django.db import models
 #from django.urls import reverse
 
 class Log(models.Model):
-    backup_dt = models.DateTimeField('Backup Date')
+    backup_dt = models.DateField('Backup Date')
     schedule_tm = models.CharField('Scheduled Time', max_length=20)
     schedule_nm = models.CharField('Schedule Name', max_length=50)
     nodename = models.CharField('Schedule Name', max_length=50)
