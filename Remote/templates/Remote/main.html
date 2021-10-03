@@ -7,7 +7,7 @@
     }
     
     #bg_gr {
-        background-color: green;
+        background-color: rgb(133, 241, 133);
     }
     
     #lf {
@@ -46,10 +46,11 @@
                                 <tr>
                                     <td>{{forloop.counter}}</td>
                                     <td>{{Keep.check_dt|date:'Y-m-d(D)'}}</td>
-                                    <td>{{Keep.volume_nm}}</td>
                                     {% if Keep.pool_nm == "SRCPOOL" %}
+                                    <td id="bg_gr">{{Keep.volume_nm}}</td>
                                     <td id="bg_gr">{{Keep.pool_nm}}</td>
                                     {% else %}
+                                    <td>{{Keep.volume_nm}}</td>
                                     <td>{{Keep.pool_nm}}</td>
                                     {% endif %}
                                     <td>{{Keep.cycle}}</td>
@@ -89,10 +90,11 @@
                                 <tr>
                                     <td>{{forloop.counter}}</td>
                                     <td>{{Keep.check_dt|date:'Y-m-d(D)'}}</td>
-                                    <td>{{Keep.volume_nm}}</td>
                                     {% if Keep.pool_nm == "SRCPOOL" %}
+                                    <td id="bg_gr">{{Keep.volume_nm}}</td>
                                     <td id="bg_gr">{{Keep.pool_nm}}</td>
                                     {% else %}
+                                    <td>{{Keep.volume_nm}}</td>
                                     <td>{{Keep.pool_nm}}</td>
                                     {% endif %}
                                     <td>{{Keep.cycle}}</td>
