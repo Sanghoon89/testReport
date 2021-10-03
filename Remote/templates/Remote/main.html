@@ -18,142 +18,143 @@
         text-align: left;
     }
 </style>
+<div id="container">
+    <h1>일일 소산</h1>
+    <br>
 
-<h1>일일 소산</h1>
-<br>
+    <div id="wrapper">
+        <div id="content-wrapper">
+            <div class="container-fluid">
 
-<div id="wrapper">
-    <div id="content-wrapper">
-        <div class="container-fluid">
-
-            <!-- DataTables Example -->
-            <div class="card mb-3">
-                <div class="card-header">
-                    <i class="fas fa-table"></i><strong> {{checkin.1.due_dt|date:'Y-m-d(D)'}} - Check-in</strong></div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>번호</th>
-                                    <th>소산일자</th>
-                                    <th>테입명</th>
-                                    <th>풀명</th>
-                                    <th>보관주기</th>
-                                    <th>만료일자</th>
-                                    <th>입고확인</th>
-                                    <th>출고확인</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for Keep in checkin %}
-                                <tr>
-                                    <td>{{forloop.counter}}</td>
-                                    <td>{{Keep.check_dt|date:'Y-m-d(D)'}}</td>
-                                    {% if Keep.pool_nm == "SRCPOOL" %}
-                                    <td id="bg_gr">{{Keep.volume_nm}}</td>
-                                    <td id="bg_gr">{{Keep.pool_nm}}</td>
-                                    {% else %}
-                                    <td>{{Keep.volume_nm}}</td>
-                                    <td>{{Keep.pool_nm}}</td>
-                                    {% endif %}
-                                    <td>{{Keep.cycle}}</td>
-                                    <td>{{Keep.due_dt|date:'Y-m-d(D)'}}</td>
-                                    <td>{{Keep.safein_chk}}</td>
-                                    <td>{{Keep.safeout_chk}}</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
+                <!-- DataTables Example -->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fas fa-table"></i><strong> {{checkin.1.due_dt|date:'Y-m-d(D)'}} - Check-in</strong></div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>소산일자</th>
+                                        <th>테입명</th>
+                                        <th>풀명</th>
+                                        <th>보관주기</th>
+                                        <th>만료일자</th>
+                                        <th>입고확인</th>
+                                        <th>출고확인</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for Keep in checkin %}
+                                    <tr>
+                                        <td>{{forloop.counter}}</td>
+                                        <td>{{Keep.check_dt|date:'Y-m-d(D)'}}</td>
+                                        {% if Keep.pool_nm == "SRCPOOL" %}
+                                        <td id="bg_gr">{{Keep.volume_nm}}</td>
+                                        <td id="bg_gr">{{Keep.pool_nm}}</td>
+                                        {% else %}
+                                        <td>{{Keep.volume_nm}}</td>
+                                        <td>{{Keep.pool_nm}}</td>
+                                        {% endif %}
+                                        <td>{{Keep.cycle}}</td>
+                                        <td>{{Keep.due_dt|date:'Y-m-d(D)'}}</td>
+                                        <td>{{Keep.safein_chk}}</td>
+                                        <td>{{Keep.safeout_chk}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
+                    <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
                 </div>
-                <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
-            </div>
 
-            <!-- DataTables Example -->
-            <div class="card mb-3">
-                <div class="card-header">
-                    <i class="fas fa-table"></i><strong> {{checkout.1.check_dt|date:'Y-m-d(D)'}} - Check-out</strong></div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>번호</th>
-                                    <th>소산일자</th>
-                                    <th>테입명</th>
-                                    <th>풀명</th>
-                                    <th>보관주기</th>
-                                    <th>만료일자</th>
-                                    <th>입고확인</th>
-                                    <th>출고확인</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for Keep in checkout %}
-                                <tr>
-                                    <td>{{forloop.counter}}</td>
-                                    <td>{{Keep.check_dt|date:'Y-m-d(D)'}}</td>
-                                    {% if Keep.pool_nm == "SRCPOOL" %}
-                                    <td id="bg_gr">{{Keep.volume_nm}}</td>
-                                    <td id="bg_gr">{{Keep.pool_nm}}</td>
-                                    {% else %}
-                                    <td>{{Keep.volume_nm}}</td>
-                                    <td>{{Keep.pool_nm}}</td>
-                                    {% endif %}
-                                    <td>{{Keep.cycle}}</td>
-                                    <td>{{Keep.due_dt|date:'Y-m-d(D)'}}</td>
-                                    <td>{{Keep.safein_chk}}</td>
-                                    <td>{{Keep.safeout_chk}}</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
+                <!-- DataTables Example -->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fas fa-table"></i><strong> {{checkout.1.check_dt|date:'Y-m-d(D)'}} - Check-out</strong></div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>소산일자</th>
+                                        <th>테입명</th>
+                                        <th>풀명</th>
+                                        <th>보관주기</th>
+                                        <th>만료일자</th>
+                                        <th>입고확인</th>
+                                        <th>출고확인</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for Keep in checkout %}
+                                    <tr>
+                                        <td>{{forloop.counter}}</td>
+                                        <td>{{Keep.check_dt|date:'Y-m-d(D)'}}</td>
+                                        {% if Keep.pool_nm == "SRCPOOL" %}
+                                        <td id="bg_gr">{{Keep.volume_nm}}</td>
+                                        <td id="bg_gr">{{Keep.pool_nm}}</td>
+                                        {% else %}
+                                        <td>{{Keep.volume_nm}}</td>
+                                        <td>{{Keep.pool_nm}}</td>
+                                        {% endif %}
+                                        <td>{{Keep.cycle}}</td>
+                                        <td>{{Keep.due_dt|date:'Y-m-d(D)'}}</td>
+                                        <td>{{Keep.safein_chk}}</td>
+                                        <td>{{Keep.safeout_chk}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
+                    <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
                 </div>
-                <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
-            </div>
-            <!-- DataTables Example -->
-            <div class="card mb-3">
-                <div class="card-header">
-                    <i class="fas fa-table"></i><strong> SRCPOOL list</strong></div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>번호</th>
-                                    <th>소산일자</th>
-                                    <th>테입명</th>
-                                    <th>풀명</th>
-                                    <th>보관주기</th>
-                                    <th>만료일자</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for Keep in srcpool %}
-                                <tr>
-                                    <td>{{forloop.counter}}</td>
-                                    <td>{{Keep.check_dt|date:'Y-m-d(D)'}}</td>
-                                    <td>{{Keep.volume_nm}}</td>
-                                    <td>{{Keep.pool_nm}}</td>
-                                    <td>{{Keep.cycle}}</td>
-                                    <td>{{Keep.due_dt|date:'Y-m-d(D)'}}</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
+                <!-- DataTables Example -->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fas fa-table"></i><strong> SRCPOOL list</strong></div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>소산일자</th>
+                                        <th>테입명</th>
+                                        <th>풀명</th>
+                                        <th>보관주기</th>
+                                        <th>만료일자</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for Keep in srcpool %}
+                                    <tr>
+                                        <td>{{forloop.counter}}</td>
+                                        <td>{{Keep.check_dt|date:'Y-m-d(D)'}}</td>
+                                        <td>{{Keep.volume_nm}}</td>
+                                        <td>{{Keep.pool_nm}}</td>
+                                        <td>{{Keep.cycle}}</td>
+                                        <td>{{Keep.due_dt|date:'Y-m-d(D)'}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
+                    <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
                 </div>
-                <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
-            </div>
 
+            </div>
+            <!-- /.container-fluid -->
         </div>
-        <!-- /.container-fluid -->
+        <!-- /.content-wrapper -->
     </div>
-    <!-- /.content-wrapper -->
+    <!-- /#wrapper -->
 </div>
-<!-- /#wrapper -->
 
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">
