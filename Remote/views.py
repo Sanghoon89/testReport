@@ -13,8 +13,8 @@ TODAY = date.today().strftime('%Y-%m-%d')
 YESTER = date.today() - timedelta(1)
 YESTERDAY = YESTER.strftime('%Y-%m-%d')
 
-YESTERDAY="2021-09-14"
-TODAY="2021-09-15"
+YESTERDAY="2021-09-13"
+TODAY="2021-09-14"
 class KeepLV(ListView):
     model = Keep
     template_name = 'Remote/main.html'
