@@ -7,13 +7,14 @@ from Remote.models import Keep
 
 from datetime import date, timedelta
 import locale
-
 ## 날짜
 locale.setlocale(locale.LC_ALL,'')
 TODAY = date.today().strftime('%Y-%m-%d')
 YESTER = date.today() - timedelta(1)
 YESTERDAY = YESTER.strftime('%Y-%m-%d')
 
+YESTERDAY="2021-09-15"
+TODAY="2021-09-16"
 class KeepLV(ListView):
     model = Keep
     template_name = 'Remote/main.html'
