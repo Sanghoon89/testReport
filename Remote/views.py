@@ -13,8 +13,8 @@ TODAY = date.today().strftime('%Y-%m-%d')
 YESTER = date.today() - timedelta(1)
 YESTERDAY = YESTER.strftime('%Y-%m-%d')
 
-YESTERDAY="2021-09-10"
-TODAY="2021-09-11"
+YESTERDAY="2021-09-08"
+TODAY="2021-09-09"
 class KeepLV(ListView):
     model = Keep
     template_name = 'Remote/main.html'
@@ -23,9 +23,9 @@ class KeepLV(ListView):
     def get_context_data(self, **kwargs):
         context = super(KeepLV, self).get_context_data(**kwargs)
         imsi = Keep.objects.filter(due_dt=TODAY)
-        context['checkin'] = imsi.order_by('cycle', 'volume_nm')
+        context['checkin'] = imsi.order_by('-cycle', 'volume_nm')
         imsi = Keep.objects.filter(check_dt=YESTERDAY)
-        context['checkout'] = imsi.order_by('cycle', 'volume_nm')
+        context['checkout'] = imsi.order_by('-cycle', 'volume_nm')
         imsi = Keep.objects.filter(pool_nm='srcpool', due_dt__gt=TODAY)
         context['srcpool'] = imsi.order_by('due_dt')
         return context
