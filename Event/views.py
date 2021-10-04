@@ -15,7 +15,6 @@ YESTERDAY = YESTER.strftime('%Y-%m-%d')
 YEAR = YESTER.strftime('%Y')
 MONTH = YESTER.strftime('%m')
 
-YESTERDAY='2021-09-16'
 class LogLV(ListView):
     model = Log
     template_name = 'Event/log_list.html'
