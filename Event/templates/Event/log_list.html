@@ -14,6 +14,10 @@
         background-color: rgb(133, 241, 133);
     }
     
+    #bg_yel {
+        background-color: yellow;
+    }
+    
     #lf {
         text-align: left;
     }
@@ -93,7 +97,7 @@
     <input id="first" type="radio" name="tab" />
     <input id="second" type="radio" name="tab" checked="checked" />
     <section class="buttons">
-        <label for="first">{{monthlist.1.backup_dt|date:'Y-M'}}</label>
+        <label for="first">{{monthlist.1.backup_dt|date:'Y-m'}}</label>
         <label for="second">{{daylist.1.backup_dt|date:'m-d(D)'}}</label>
     </section>
     <sub class="tab_item">
@@ -137,8 +141,13 @@
                                         <td>{{Log.start_tm}}</td>
                                         <td>{{Log.end_tm}}</td>
                                         <td>{{Log.taken}}</td>
+                                        {% if Log.status != "Completed" %}
+                                        <td id="bg_yel">{{Log.status}}</td>
+                                        <td id="bg_yel">{{Log.returncode}}</td>
+                                        {% else %}
                                         <td>{{Log.status}}</td>
                                         <td>{{Log.returncode}}</td>
+                                        {% endif %}
                                         <td id="lf">{{Log.action}}</td>
                                         <td id="lf">{{Log.note}}</td>
                                     </tr>
@@ -197,8 +206,13 @@
                                         <td>{{Log.start_tm}}</td>
                                         <td>{{Log.end_tm}}</td>
                                         <td>{{Log.taken}}</td>
+                                        {% if Log.status != "Completed" %}
+                                        <td id="bg_yel">{{Log.status}}</td>
+                                        <td id="bg_yel">{{Log.returncode}}</td>
+                                        {% else %}
                                         <td>{{Log.status}}</td>
                                         <td>{{Log.returncode}}</td>
+                                        {% endif %}
                                         <td id="lf">{{Log.action}}</td>
                                         <td id="lf">{{Log.note}}</td>
                                     </tr>
