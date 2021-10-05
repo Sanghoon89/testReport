@@ -93,8 +93,8 @@
     <input id="first" type="radio" name="tab" checked="checked" />
     <input id="second" type="radio" name="tab" />
     <section class="buttons">
-        <label for="first">일별</label>
-        <label for="second">월별</label>
+        <label for="first">월별</label>
+        <label for="second">일별</label>
     </section>
     <sub class="tab_item">
     <div id="wrapper">
@@ -104,7 +104,7 @@
                 <!-- DataTables Example -->
                 <div class="card mb-3">
                     <div class="card-header">
-                        <i class="fas fa-table"></i><strong> {{daylist.1.backup_dt|date:'Y-m-d(D)'}}</strong></div>
+                        <i class="fas fa-table"></i><strong> {{monthlist.1.backup_dt|date:'Y-m'}}</strong></div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -126,7 +126,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for Log in daylist %}
+                                    {% for Log in monthlist %}
                                     <tr>
                                         <td>{{forloop.counter}}</td>
                                         <td>{{Log.backup_dt|date:'m-d'}}</td>
@@ -164,7 +164,7 @@
                 <!-- DataTables Example -->
                 <div class="card mb-3">
                     <div class="card-header">
-                        <i class="fas fa-table"></i><strong> {{monthlist.1.backup_dt|date:'Y-m'}}</strong></div>
+                        <i class="fas fa-table"></i><strong> {{daylist.1.backup_dt|date:'Y-m-d(D)'}}</strong></div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -186,7 +186,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for Log in monthlist %}
+                                    {% for Log in daylist %}
                                     <tr>
                                         <td>{{forloop.counter}}</td>
                                         <td>{{Log.backup_dt|date:'m-d'}}</td>
