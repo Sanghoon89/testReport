@@ -9,7 +9,9 @@ class Keep(models.Model):
     cycle = models.IntegerField('Keep Cycle', default=14)
     due_dt = models.DateField('Due Date')
     safein_chk = models.CharField('Check in coffer', max_length=20, default="X")
+    safein_dt = models.DateField('Safe-in Date')
     safeout_chk = models.CharField('Check out coffer', max_length=20, default="X")
+    safeout_dt = models.DateField('Safe-out Date')
 
     class Meta:
         verbose_name = 'Keep'
