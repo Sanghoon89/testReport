@@ -30,11 +30,11 @@
         display: none;
     }
     
-    input:nth-of-type(1)~div:nth-of-type(1) {
+    input:nth-of-type(1)~sub:nth-of-type(1) {
         display: none;
     }
     
-    input:nth-of-type(1):checked~div:nth-of-type(1) {
+    input:nth-of-type(1):checked~sub:nth-of-type(1) {
         display: block;
     }
     /* 두 번째 탭 */
@@ -43,11 +43,11 @@
         display: none;
     }
     
-    input:nth-of-type(2)~div:nth-of-type(2) {
+    input:nth-of-type(2)~sub:nth-of-type(2) {
         display: none;
     }
     
-    input:nth-of-type(2):checked~div:nth-of-type(2) {
+    input:nth-of-type(2):checked~sub:nth-of-type(2) {
         display: block;
     }
     /* 탭 모양 구성 */
@@ -113,6 +113,7 @@
         <label for="first">First</label>
         <label for="second">Second</label>
     </section>
+    <sub class="tab_item">
     <div id="wrapper">
         <div id="content-wrapper">
             <div class="container-fluid">
@@ -171,6 +172,7 @@
         <!-- /.content-wrapper -->
     </div>
     <!-- /#wrapper -->
+    </sub>
 </aisde>
 
 <!-- Scroll to Top Button-->
