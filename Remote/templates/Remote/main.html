@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% block title %}일일 소산{% endblock %} {% block content %}
+{% extends "base.html" %} {% block title %}일일 소산{% endblock %}
 
 <style>
     th {
@@ -39,6 +39,8 @@
 <!-- Demo scripts for this page-->
 <script src='{% static "js/demo/datatables-demo.js" %}'></script>
 <script src='{% static "js/demo/chart-area-demo.js" %}'></script>
+
+{% block content %}
 
 <div id="wrapper">
     <div id="content-wrapper">
