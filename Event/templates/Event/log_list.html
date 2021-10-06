@@ -212,11 +212,6 @@
                                         <td>{{Log.start_tm}}</td>
                                         <td>{{Log.end_tm}}</td>
                                         <td>{{Log.taken}}</td>
-                                        {% if Log.returncode != 0 %}
-                                        <td id="bg_gr">{{Log.returncode}}</td>
-                                        {% else %}
-                                        <td id="bg_gr">{{Log.returncode}}</td>
-                                        {% endif %}
                                         {% if Log.status != "Completed" %}
                                         <td id="bg_ye">{{Log.status}}</td>
                                         <td id="bg_ye">{{Log.returncode}}</td>
