@@ -17,8 +17,8 @@ INSQL_1 = f"INSERT INTO {TableName_1} ({Columns_1}) VALUES (%s, %s, %s, %s, %s, 
 
 SQL_2 = f"select * from tsmRemoteKeep where check_date = '{DATE}' ORDER BY check_date, pool_name, volume_name "
 TableName_2 = "RemoteKeep"
-Columns_2 = "check_dt, volume_nm, pool_nm, cycle, due_dt, safein_chk, safeout_chk"
-INSQL_2 = f"INSERT INTO {TableName_2} ({Columns_2}) VALUES (%s, %s, %s, %s, %s, 'X', 'X')"
+Columns_2 = "check_dt, volume_nm, pool_nm, cycle, due_dt, safein_chk, safeout_chk, safein_dt, safeout_dt"
+INSQL_2 = f"INSERT INTO {TableName_2} ({Columns_2}) VALUES (%s, %s, %s, %s, %s, 'X', 'X', %s, %s)"
 
 
 #conn = pymysql.connect(host='192.168.15.11', user='root', password='xmflrj', db='tsmBackup', charset='utf8')
