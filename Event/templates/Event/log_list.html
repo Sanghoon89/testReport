@@ -14,7 +14,7 @@
         background-color: rgb(133, 241, 133);
     }
     
-    #bg_yel {
+    #bg_ye {
         background-color: yellow;
     }
     
@@ -141,9 +141,14 @@
                                         <td>{{Log.start_tm}}</td>
                                         <td>{{Log.end_tm}}</td>
                                         <td>{{Log.taken}}</td>
+                                        {% if Log.returncode != 0 %}
+                                        <td id="bg_gr">{{Log.returncode}}</td>
+                                        {% else %}
+                                        <td id="bg_gr">{{Log.returncode}}</td>
+                                        {% endif %}
                                         {% if Log.status != "Completed" %}
-                                        <td id="bg_yel">{{Log.status}}</td>
-                                        <td id="bg_yel">{{Log.returncode}}</td>
+                                        <td id="bg_ye">{{Log.status}}</td>
+                                        <td id="bg_ye">{{Log.returncode}}</td>
                                         {% else %}
                                         <td>{{Log.status}}</td>
                                         <td>{{Log.returncode}}</td>
@@ -204,9 +209,14 @@
                                         <td>{{Log.start_tm}}</td>
                                         <td>{{Log.end_tm}}</td>
                                         <td>{{Log.taken}}</td>
+                                        {% if Log.returncode != 0 %}
+                                        <td id="bg_gr">{{Log.returncode}}</td>
+                                        {% else %}
+                                        <td id="bg_gr">{{Log.returncode}}</td>
+                                        {% endif %}
                                         {% if Log.status != "Completed" %}
-                                        <td id="bg_yel">{{Log.status}}</td>
-                                        <td id="bg_yel">{{Log.returncode}}</td>
+                                        <td id="bg_ye">{{Log.status}}</td>
+                                        <td id="bg_ye">{{Log.returncode}}</td>
                                         {% else %}
                                         <td>{{Log.status}}</td>
                                         <td>{{Log.returncode}}</td>
