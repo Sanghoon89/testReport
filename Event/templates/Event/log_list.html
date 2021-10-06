@@ -93,13 +93,13 @@
 <script>
     // 문서가 완전히 로드된 후에 DOM 조작
     window.onload = function() {
-        var td = document.getElementsByTagName('td');
-        for (var i = 0; i < td.length; i++) {
-            td[i].onmouseover = function() {
+        var tr = document.getElementsByTagName('tr');
+        for (var i = 0; i < tr.length; i++) {
+            tr[i].onmouseover = function() {
                 this.style.backgroundColor = 'skyblue'
             };
 
-            td[i].onmouseout = function() {
+            tr[i].onmouseout = function() {
                 this.style.backgroundColor = 'white'
             };
         }
