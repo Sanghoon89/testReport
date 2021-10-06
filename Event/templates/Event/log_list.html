@@ -133,7 +133,7 @@
                                     {% for Log in monthlist %}
                                     <tr>
                                         <td>{{forloop.counter}}</td>
-                                        <td>{{Log.backup_dt|date:'m-d'}}</td>
+                                        <td>{{Log.backup_dt|date:'m-d(D)'}}</td>
                                         <td>{{Log.schedule_tm}}</td>
                                         <td id="lf">{{Log.schedule_nm}}</td>
                                         <td>{{Log.domain_nm}}</td>
@@ -180,7 +180,6 @@
                                 <thead>
                                     <tr>
                                         <th>번호</th>
-                                        <th>일자</th>
                                         <th>스케줄</th>
                                         <th>스케줄명</th>
                                         <th>도메인명</th>
@@ -198,7 +197,6 @@
                                     {% for Log in daylist %}
                                     <tr>
                                         <td>{{forloop.counter}}</td>
-                                        <td>{{Log.backup_dt|date:'m-d'}}</td>
                                         <td>{{Log.schedule_tm}}</td>
                                         <td id="lf">{{Log.schedule_nm}}</td>
                                         <td>{{Log.domain_nm}}</td>
