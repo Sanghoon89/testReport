@@ -97,7 +97,7 @@
     <input id="first" type="radio" name="tab" />
     <input id="second" type="radio" name="tab" checked="checked" />
     <section class="buttons">
-    <!--
+        <!--
         <label for="first">{{monthlist.1.backup_dt|date:'Y-m'}}</label>
         <label for="second">{{daylist.1.backup_dt|date:'m-d(D)'}}</label>
     -->
@@ -145,17 +145,16 @@
                                         <td>{{Log.start_tm}}</td>
                                         <td>{{Log.end_tm}}</td>
                                         <td>{{Log.taken}}</td>
-                                        {% if Log.returncode != 0 %}
-                                        <td id="bg_gr">{{Log.returncode}}</td>
-                                        {% else %}
-                                        <td id="bg_gr">{{Log.returncode}}</td>
-                                        {% endif %}
                                         {% if Log.status != "Completed" %}
                                         <td id="bg_ye">{{Log.status}}</td>
                                         <td id="bg_ye">{{Log.returncode}}</td>
                                         {% else %}
                                         <td>{{Log.status}}</td>
-                                        <td>{{Log.returncode}}</td>
+                                            {% if Log.returncode != 0 %}
+                                            <td id="bg_gr">{{Log.returncode}}</td>
+                                            {% else %}
+                                            <td>{{Log.returncode}}</td>
+                                            {% endif %}
                                         {% endif %}
                                         <td id="lf">{{Log.action}}</td>
                                         <td id="lf">{{Log.note}}</td>
@@ -223,7 +222,11 @@
                                         <td id="bg_ye">{{Log.returncode}}</td>
                                         {% else %}
                                         <td>{{Log.status}}</td>
-                                        <td>{{Log.returncode}}</td>
+                                            {% if Log.returncode != 0 %}
+                                            <td id="bg_gr">{{Log.returncode}}</td>
+                                            {% else %}
+                                            <td>{{Log.returncode}}</td>
+                                            {% endif %}
                                         {% endif %}
                                         <td id="lf">{{Log.action}}</td>
                                         <td id="lf">{{Log.note}}</td>
