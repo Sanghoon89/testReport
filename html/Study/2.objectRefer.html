@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Understanding References</title>
+    <script>
+        // 객체 참조 이해하기
+        var items = new Array("one", "two", "three");
+        var itemsRef = items;
+
+        items.push("four");
+        alert(items.length == itemsRef.length);
+
+        items = new Array("test");
+        alert(items != itemsRef);
+
+        var itemsRef = items;
+
+        items += "ing";
+        alert(items);
+        alert(itemsRef);
+    </script>
+</head>
+
+<body>
+    <h1>Understanding References</h1>
+    <p class='test'>There are a number of reasons why the DOM is awesome, here are some:
+    </p>
+    <ul>
+        <li id='everywhere'>It can be found everywhere.</li>
+        <li class='test'>It's easy to use.</li>
+        <li class='test'>It can help you to find what you want, really quickly.</li>
+    </ul>
+</body>
+<script>
+    // 문서가 완전히 로드된 후에 DOM 조작
+    window.onload = function() {
+        var li = document.getElementsByTagName('li');
+        for (var i = 0; i < li.length; i++) {
+            li[i].onmouseover = function() {
+                this.style.backgroundColor = 'skyblue'
+            };
+
+            li[i].onmouseout = function() {
+                this.style.backgroundColor = 'white'
+            };
+        }
+    };
+</script>
+
+</html>

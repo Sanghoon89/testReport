@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>scope example</title>
+    <script>
+        var foo = "test";
+        document.write('1. foo= ', foo, '<br>')
+
+        if (true) {
+            var foo = "new test";
+        }
+
+        document.write('2. foo= ', foo, '<br>');
+
+        function test() {
+            var foo = "old test";
+            document.write('3. foo= ', foo, '<br>')
+
+        }
+        test();
+        document.write('4. foo= ', foo, '<br>')
+    </script>
+
+    <script>
+        var test = "test";
+        document.write('5. test= ', test, '<br>');
+
+        document.write('6. window.test= ', window.test, '<br>');
+    </script>
+
+    <script>
+        function test1() {
+            var foo = "global var";
+            document.write('7. var foo= ', foo, '<br>');
+        }
+
+        function test2() {
+            foo = "global var";
+            document.write('8. foo= ', foo, '<br>');
+        }
+    </script>
+</head>
+
+<body>
+    <script>
+        test1();
+        document.write('7-1. var foo= ', foo, '<br>');
+
+        test2();
+        document.write('8-1. foo= ', window.foo, '<br>');
+    </script>
+</body>
+
+</html>

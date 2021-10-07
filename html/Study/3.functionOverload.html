@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Introduction to the DOM</title>
+    <script src="3.js"></script>
+    <script>
+        function strict(types, args) {
+            // 타입의 개수와 전달인자 개수가 일치하는지 확인한다.
+            if (types.length != args.length)
+                throw "Invalid number of arguments. Expected " + types.length +
+                    ", received " + args.length + " instead.";
+            document.write(type.length, ', ', args.length);
+
+            // 각 전달인자를 방문하면서 타입을 검사한다.
+            for (var i = 0; i < args.length; i++) {
+                if (args[i].constructor != types[i]) {
+                    throw "Invalid number of arguments. Expected " + types[i].name +
+                        ", received " + args[i].constructor.name + " instead.";
+                }
+            }
+        }
+
+        //strinct 함수 사용예
+        function userList(prefix, num, users) {
+            // prefix는 문자열, num은 숫자, users는 배열임을 명확히 한다.
+            strict([String, Number, Array], arguments);
+
+            // 'num' 개수만큼 사용자를 방문한다.
+            for (var i = 0; i < num, i++) {
+                alert(prefix + ": " + users[i]);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>함수 오버로딩과 타입 검사</h1>
+    <h4 class='test'>자바스크립트 함수 오버로딩에 관한 두 가지 예</h4>
+    <ol>
+        함수 오버로딩에 필요한 두가지 정보 : 전달인자 개수와 전달인자 타입
+        <li id='everywhere'>sendMessage(msg, obj) : 메시지를 보내는 간단한 함수</li>
+        <ul>
+            <li>sendMessage("Hello, World!");</li>
+            <script>
+                sendMessage("Hello, World!");
+            </script>
+            <li>sendMessage("How are you?", window);</li>
+            <script>
+                sendMessage("How are you?", window);
+            </script>
+            <p>두 호출 모두 제대로 작동</p>
+        </ul>
+        <li class='test'>makeArray() : 전달인자를 여러 개 받아 배열을 만들어 반환하는 함수</li>
+    </ol>
+    <ul>
+        <li>displayError(msg) : 에러 메시지나 기본 메시지 출력하기</li>
+        <ul>
+            <li>displayError();</li>
+            <script>
+                displayError();
+            </script>
+            <li>displayError('This message is OK.');</li>
+            <script>
+                displayError('This message is OK.');
+            </script>
+        </ul>
+    </ul>
+
+    <h4 class='test'>변수의 타입을 검사하는 두가지 방법</h4>
+    <ol>
+        <li>typeof를 사용한 예</li>
+        <script>
+            typeo();
+        </script>
+        <li>constructor 프로퍼티를 사용한 예</li>
+        <script>
+            construct();
+        </script>
+    </ol>
+
+    <h4 class='test'>함수에 전달되는 모든 전달인자를 엄격하게 관리하는 함수</h4>
+    <ol>
+        <li>변수 타입 목록을 기준으로 전달인자 목록을 엄격히 검사</li>
+        <li>사용자 목록을 출력하는 간단한 함수 (위 함수 활용)</li>
+        <script>
+            userList('abc', 4, ['abc', 'def', 'ghi', 'jkl'])
+        </script>
+    </ol>
+</body>
+<script src="windowOnload.js"></script>
+
+</html>
