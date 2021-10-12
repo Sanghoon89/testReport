@@ -12,7 +12,7 @@ locale.setlocale(locale.LC_ALL,'')
 TODAY = date.today().strftime('%Y-%m-%d')
 YESTER = date.today() - timedelta(1)
 YESTERDAY = YESTER.strftime('%Y-%m-%d')
-# YESTERDAY = '2021-10-08'
+YESTERDAY = '2021-10-08'
 
 class KeepLV(ListView):
     model = Keep
