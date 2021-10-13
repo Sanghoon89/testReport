@@ -110,7 +110,7 @@
     <li style="display: inline;">
         <strong>{{month|date:"m"}}월: </strong>
     </li>
-    {% for date in date_list %}
+    {% for date in months %}
     <li style="display: inline;">
         <a href="{% url 'Event:log_day_archive' date|date:'Y' date|date:'b' date|date:'d' %}"> {{ date|date:"d(D)" }}</a></li>
     {% endfor %}
