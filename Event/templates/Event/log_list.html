@@ -106,8 +106,13 @@
     };
 </script>
 <h2>TSM 백업 결과</h2>
-{% for date in date_list %} {{date|date:"Y-m"}} {% endfor %}
-
+<ul>
+    {% for date in date_list %}
+    <li style="display: inline;">
+        <a href="{% url 'Event:log_month_archive' year|date:'Y' date|date:'b' %}">{{ date|date:"y-m" }}</a>
+    </li>
+    {% endfor %}
+</ul>
 <tr>
     {% for mon in months %}
     <td><a href="#">{{mon|date:'Y-m'}}</a></td> {% endfor %}
