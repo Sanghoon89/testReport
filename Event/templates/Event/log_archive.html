@@ -107,12 +107,12 @@
 </script>
 <h2>TSM 백업 결과</h2>
 {% for date in date_list %}
-<ul>{{date|date:"Y"}}</ul>
+<ul>{{date|date:"Y-m"}}</ul>
 {% endfor %}
 
 <ul>
     {% for article in latest %}
-    <span><li>{{ article.backup_dt}}</li></span> {% endfor %}
+    <span><li>{{ article.backup_dt|date: "Y-m-d"}}</li></span> {% endfor %}
 </ul>
 
 <tr>
