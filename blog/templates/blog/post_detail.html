@@ -2,7 +2,7 @@
 <h2>{{ object.title }}</h2>
 
 <p>
-    {% if objectr.get_previous %}
+    {% if object.get_previous %}
     <a href="{{ object.get_previous.get_absolute_url }}" title="View previous post">
         <i class="fas fa-arrow-circle-left"></i> {{ object.get_previous }}
     </a>
