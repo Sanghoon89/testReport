@@ -40,12 +40,12 @@
 <script src='{% static "js/demo/datatables-demo.js" %}'></script>
 <script src='{% static "js/demo/chart-area-demo.js" %}'></script>
 
+<h2>일일 소산</h2>
+{% for dt in date_list %}
+<h3>{{dt}}</h3> {% endfor %}
 <div id="wrapper">
     <div id="content-wrapper">
         <div class="container-fluid">
-            <h2>일일 소산</h2>
-            {% for dt in date_list %}
-            <h3>{{dt}}</h3> {% endfor %}
             <!-- DataTables Example -->
             <div class="card mb-3">
                 <div class="card-header">
