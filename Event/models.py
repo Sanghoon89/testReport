@@ -31,3 +31,6 @@ class Log(models.Model):
 
     def __date__ (self):
         return self.backup_dt
+
+    def get_absolute_url(self):
+        return reverse('Event:log_archive')
