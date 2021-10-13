@@ -106,11 +106,12 @@
     };
 </script>
 <h2>TSM 백업 결과</h2>
-{% for date in date_list %}
 <ul>
-    <li>{{year|date:"Y"}}{{month|date:"m"}}-</li>
+    {% for date in date_list %}
+    <li style="display: inline;">
+        <a href="{% url 'Event:log_month_archive' year|date:'Y' date|date:'b' %}">{{ date|date:"F" }}</a></li>
+    {% endfor %}
 </ul>
-{% endfor %}
 
 <ul>
     {% for article in object_list %}
