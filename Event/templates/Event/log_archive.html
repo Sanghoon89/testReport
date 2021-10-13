@@ -118,7 +118,7 @@
 <ul>
     {% for date in date_list %}
     <li style="display: inline;">
-        <a href="{% url 'Event:log_year_archive' year|date:'Y' %}">{{ date|date:"Y" }} </a></li>
+        <a href="{% url 'Event:log_year_archive' date|date:'Y' %}">{{ date|date:"Y" }} </a></li>
     {% endfor %}
 </ul>
 
