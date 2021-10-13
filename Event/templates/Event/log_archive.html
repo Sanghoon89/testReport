@@ -112,7 +112,7 @@
 
 <ul>
     {% for article in latest %}
-    <span><li>{{ article.backup_dt|date: "Y-m-d"}}</li></span> {% endfor %}
+    <span><li>{{article.backup_dt|date:"Y-m-d"}}</li></span> {% endfor %}
 </ul>
 
 <tr>
