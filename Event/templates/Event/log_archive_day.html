@@ -111,7 +111,7 @@
 {% endfor %}
 
 <ul>
-    {% for article in latest %}
+    {% for article in object_list %}
     <span><li>{{article.backup_dt|date:"Y-m-d"}}</li></span> {% endfor %}
 </ul>
 
