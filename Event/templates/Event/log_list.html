@@ -107,16 +107,13 @@
 </script>
 <h2>TSM 백업 결과</h2>
 <ul>
-    {% for date in date_list %}
+    {% for date in months %}
     <li style="display: inline;">
         <a href="{% url 'Event:log_month_archive' year|date:'Y' date|date:'b' %}">{{ date|date:"y-m" }}</a>
     </li>
     {% endfor %}
 </ul>
-<tr>
-    {% for mon in months %}
-    <td><a href="#">{{mon|date:'Y-m'}}</a></td> {% endfor %}
-</tr>
+
 <aside id="main_aside">
     <input id="first" type="radio" name="tab" />
     <input id="second" type="radio" name="tab" checked="checked" />
