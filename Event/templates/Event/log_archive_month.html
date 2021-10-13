@@ -108,7 +108,7 @@
 <h2>TSM 백업 결과</h2>
 {% for date in date_list %}
 <ul>
-    <li>{{day|date:"Y-m-d"}}</li>
+    <li>{{month|date:"Y-m-d"}}</li>
 </ul>
 {% endfor %}
 
@@ -140,7 +140,7 @@
                 <!-- DataTables Example -->
                 <div class="card mb-3">
                     <div class="card-header">
-                        <i class="fas fa-table"></i><strong> {{monthlist.1.backup_dt|date:'Y-m'}}</strong></div>
+                        <i class="fas fa-table"></i><strong> {{object_list.1.backup_dt|date:'Y-m'}}</strong></div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -162,7 +162,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for Log in monthlist %}
+                                    {% for Log in object_list %}
                                     <tr>
                                         <td>{{forloop.counter}}</td>
                                         <td>{{Log.backup_dt|date:'m-d (D)'}}</td>
@@ -209,7 +209,7 @@
                 <!-- DataTables Example -->
                 <div class="card mb-3">
                     <div class="card-header">
-                        <i class="fas fa-table"></i><strong> {{daylist.1.backup_dt|date:'Y-m-d(D)'}}</strong></div>
+                        <i class="fas fa-table"></i><strong> {{object_list.1.backup_dt|date:'Y-m-d(D)'}}</strong></div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -230,7 +230,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for Log in daylist %}
+                                    {% for Log in object_list %}
                                     <tr>
                                         <td>{{forloop.counter}}</td>
                                         <td>{{Log.schedule_tm}}</td>
