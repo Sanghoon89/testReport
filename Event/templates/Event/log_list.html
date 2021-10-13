@@ -109,7 +109,7 @@
 <ul>
     {% for date in months %}
     <li style="display: inline;">
-        <a href="{% url 'Event:log_month_archive' year|date:'Y' date|date:'b' %}">{{ date|date:"y-m" }}</a>
+        <a href="{% url 'Event:log_month_archive' date|date:'Y' date|date:'b' %}">{{ date|date:"y-m" }}</a>
     </li>
     {% endfor %}
 </ul>
