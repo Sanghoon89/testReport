@@ -108,7 +108,7 @@
 <h2>TSM 백업 결과</h2>
 
 {% for mon in years %}
-<td><a href="{% url 'Event:log_year_archive' year|date:'Y' %}">{{mon|date:'Y'}}</a></td> {% endfor %}
+<td><a href="{% url 'Event:log_year_archive' year|date:'Y' date|date:'b' %}">{{mon|date:'Y'}}</a></td> {% endfor %}
 
 <aside id="main_aside">
     <input id="first" type="radio" name="tab" />
