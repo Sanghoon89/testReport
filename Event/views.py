@@ -36,6 +36,14 @@ class LogLV(ListView):
 class LogAV(ArchiveIndexView):
     model = Log
     date_field = 'backup_dt'
+    def get_context_data(self, **kwargs):
+        context = super(LogAV, self).get_context_data(**kwargs)
+        context['daylist'] = Log.objects.filter(backup_dt=YESTERDAY)
+        context['monthlist'] = Log.objects.filter(backup_dt__year=YEAR, backup_dt__month=MONTH)
+        context['years'] = Log.objects.dates('backup_dt', 'year')
+        context['months'] = Log.objects.dates('backup_dt', 'month')
+        context['days'] = Log.objects.dates('backup_dt', 'day')
+        return context
 
 class LogYAV(YearArchiveView):
     model = Log
