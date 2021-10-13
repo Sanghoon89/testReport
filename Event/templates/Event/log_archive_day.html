@@ -1,0 +1,298 @@
+{% extends "base.html" %} {% block title %}일일백업결과{% endblock %} {% block content %} {% load static %}
+
+<style>
+    th {
+        text-align: center;
+        background-color: rgb(146, 215, 247);
+    }
+    
+    td {
+        text-align: center;
+    }
+    
+    #bg_gr {
+        background-color: rgb(133, 241, 133);
+    }
+    
+    #bg_ye {
+        background-color: yellow;
+    }
+    
+    #lf {
+        text-align: left;
+    }
+</style>
+<style>
+    #main_aside>aside.main_aside {
+        margin-bottom: 10px;
+        padding: 20px;
+        border: 1px solid black;
+    }
+    /* 첫 번째 탭 */
+    
+    input:nth-of-type(1) {
+        display: none;
+    }
+    
+    input:nth-of-type(1)~sub:nth-of-type(1) {
+        display: none;
+    }
+    
+    input:nth-of-type(1):checked~sub:nth-of-type(1) {
+        display: block;
+    }
+    /* 두 번째 탭 */
+    
+    input:nth-of-type(2) {
+        display: none;
+    }
+    
+    input:nth-of-type(2)~sub:nth-of-type(2) {
+        display: none;
+    }
+    
+    input:nth-of-type(2):checked~sub:nth-of-type(2) {
+        display: block;
+    }
+    /* 탭 모양 구성 */
+    
+    section.buttons {
+        overflow: hidden;
+    }
+    
+    section.buttons>label {
+        /* 수평 정렬 */
+        display: block;
+        float: left;
+        /* 크기 및 글자 위치 지정 */
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        /* 테두리 지정 */
+        box-sizing: border-box;
+        border: 1px solid black;
+        border-radius: 10px 10px 0 0;
+        /* 색상 지정 */
+        background: rgb(182, 181, 181);
+        color: rgb(229, 226, 226);
+    }
+    
+    input:nth-of-type(1):checked~section.buttons>label:nth-of-type(1) {
+        background: white;
+        border-bottom: 1px solid white;
+        color: black;
+    }
+    
+    input:nth-of-type(2):checked~section.buttons>label:nth-of-type(2) {
+        background: white;
+        border-bottom: 1px solid white;
+        color: black;
+    }
+</style>
+<script>
+    // 문서가 완전히 로드된 후에 DOM 조작
+    window.onload = function() {
+        var tr = document.getElementsByTagName('tr');
+        for (var i = 0; i < tr.length; i++) {
+            tr[i].onmouseover = function() {
+                this.style.backgroundColor = 'skyblue'
+            };
+
+            tr[i].onmouseout = function() {
+                this.style.backgroundColor = 'white'
+            };
+        }
+    };
+</script>
+<h2>TSM 백업 결과</h2>
+{% for date in date_list %}
+<ul>{{date|date:"Y-m"}}</ul>
+{% endfor %}
+
+<ul>
+    {% for article in latest %}
+    <span><li>{{article.backup_dt|date:"Y-m-d"}}</li></span> {% endfor %}
+</ul>
+
+<tr>
+    {% for mon in months %}
+    <td><a href="#">{{mon|date:'Y-m'}}</a></td> {% endfor %}
+</tr>
+<aside id="main_aside">
+    <input id="first" type="radio" name="tab" />
+    <input id="second" type="radio" name="tab" checked="checked" />
+    <section class="buttons">
+        <!--
+        <label for="first">{{monthlist.1.backup_dt|date:'Y-m'}}</label>
+        <label for="second">{{daylist.1.backup_dt|date:'m-d(D)'}}</label>
+    -->
+        <label for="first">월간</label>
+        <label for="second">일별</label>
+    </section>
+    <sub class="tab_item">
+    <div id="wrapper">
+        <div id="content-wrapper">
+            <div class="container-fluid">
+
+                <!-- DataTables Example -->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fas fa-table"></i><strong> {{monthlist.1.backup_dt|date:'Y-m'}}</strong></div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>일자</th>
+                                        <th>스케줄</th>
+                                        <th>스케줄명</th>
+                                        <th>도메인명</th>
+                                        <th>노드명</th>
+                                        <th>시작시간</th>
+                                        <th>완료시간</th>
+                                        <th>소요</th>
+                                        <th>백업결과</th>
+                                        <th>RC</th>
+                                        <th>조치</th>
+                                        <th>비고</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for Log in monthlist %}
+                                    <tr>
+                                        <td>{{forloop.counter}}</td>
+                                        <td>{{Log.backup_dt|date:'m-d (D)'}}</td>
+                                        <td>{{Log.schedule_tm}}</td>
+                                        <td id="lf">{{Log.schedule_nm}}</td>
+                                        <td>{{Log.domain_nm}}</td>
+                                        <td id="lf">{{Log.nodename}}</td>
+                                        <td>{{Log.start_tm}}</td>
+                                        <td>{{Log.end_tm}}</td>
+                                        <td>{{Log.taken}}</td>
+                                        {% if Log.status != "Completed" %}
+                                        <td id="bg_ye">{{Log.status}}</td>
+                                        <td id="bg_ye">{{Log.returncode}}</td>
+                                        {% else %}
+                                        <td>{{Log.status}}</td>
+                                            {% if Log.returncode != 0 %}
+                                            <td id="bg_gr">{{Log.returncode}}</td>
+                                            {% else %}
+                                            <td>{{Log.returncode}}</td>
+                                            {% endif %}
+                                        {% endif %}
+                                        <td id="lf">{{Log.action}}</td>
+                                        <td id="lf">{{Log.note}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    </sub>
+    <sub class="tab_item">
+    <div id="wrapper">
+        <div id="content-wrapper">
+            <div class="container-fluid">
+
+                <!-- DataTables Example -->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fas fa-table"></i><strong> {{daylist.1.backup_dt|date:'Y-m-d(D)'}}</strong></div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>스케줄</th>
+                                        <th>스케줄명</th>
+                                        <th>도메인명</th>
+                                        <th>노드명</th>
+                                        <th>시작시간</th>
+                                        <th>완료시간</th>
+                                        <th>소요</th>
+                                        <th>백업결과</th>
+                                        <th>RC</th>
+                                        <th>조치</th>
+                                        <th>비고</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for Log in daylist %}
+                                    <tr>
+                                        <td>{{forloop.counter}}</td>
+                                        <td>{{Log.schedule_tm}}</td>
+                                        <td id="lf">{{Log.schedule_nm}}</td>
+                                        <td>{{Log.domain_nm}}</td>
+                                        <td id="lf">{{Log.nodename}}</td>
+                                        <td>{{Log.start_tm}}</td>
+                                        <td>{{Log.end_tm}}</td>
+                                        <td>{{Log.taken}}</td>
+                                        {% if Log.status != "Completed" %}
+                                        <td id="bg_ye">{{Log.status}}</td>
+                                        <td id="bg_ye">{{Log.returncode}}</td>
+                                        {% else %}
+                                        <td>{{Log.status}}</td>
+                                            {% if Log.returncode != 0 %}
+                                            <td id="bg_gr">{{Log.returncode}}</td>
+                                            {% else %}
+                                            <td>{{Log.returncode}}</td>
+                                            {% endif %}
+                                        {% endif %}
+                                        <td id="lf">{{Log.action}}</td>
+                                        <td id="lf">{{Log.note}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    </sub>
+</aside>
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+
+
+<!-- Bootstrap core JavaScript-->
+<script src='{% static "vendor/jquery/jquery.min.js" %}'></script>
+<script src='{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
+
+<!-- Core plugin JavaScript-->
+<script src='{% static "vendor/jquery-easing/jquery.easing.min.js" %}'></script>
+
+<!-- Page level plugin JavaScript-->
+<script src='{% static "vendor/chart.js/Chart.min.js" %}'></script>
+<script src='{% static "vendor/datatables/jquery.dataTables.js" %}'></script>
+<script src='{% static "vendor/datatables/dataTables.bootstrap4.js" %}'></script>
+
+<!-- Custom scripts for all pages-->
+<script src='{% static "js/sb-admin.min.js" %}'></script>
+
+<!-- Demo scripts for this page-->
+<script src='{% static "js/demo/datatables-demo.js" %}'></script>
+<script src='{% static "js/demo/chart-area-demo.js" %}'></script>
+
+
+{% endblock %}

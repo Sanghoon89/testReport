@@ -45,6 +45,7 @@ class LogYAV(YearArchiveView):
 class LogMAV(MonthArchiveView):
     model = Log
     date_field = 'backup_dt'
+    make_object_list = True
 
 class LogDAV(DayArchiveView):
     model = Log
