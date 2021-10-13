@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(), name='home'),     # 추가3
     path('bookmark/', include('bookmark.urls')),   # 추가
-    path('blog/', include('blog.urls')),           # 추가
+#    path('blog/', include('blog.urls')),           # 추가
     path('EventLog/', include('Event.urls')),
     path('RemoteKeep/', include('Remote.urls')),
     path('polls/', include('polls.urls')),
