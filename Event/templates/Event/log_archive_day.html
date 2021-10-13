@@ -112,14 +112,10 @@
     </li>
     {% for date in months %}
     <li style="display: inline;">
-        <a href="{% url 'Event:log_day_archive' date|date:'Y' date|date:'b' date|date:'d' %}"> {{ date|date:"d(D)" }}</a></li>
+        <a href="{% url 'Event:log_day_archive' date|date:'Y' date|date:'b' date|date:'d' %}"> {{ date|date:"Y-m" }}</a></li>
     {% endfor %}
 </ul>
 
-<tr>
-    {% for mon in months %}
-    <td><a href="#">{{mon|date:'Y-m'}}</a></td> {% endfor %}
-</tr>
 <div id="wrapper">
     <div id="content-wrapper">
         <div class="container-fluid">
