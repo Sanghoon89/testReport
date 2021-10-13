@@ -41,7 +41,7 @@
 <script src='{% static "js/demo/chart-area-demo.js" %}'></script>
 
 <h2>일일 소산</h2>
-{% for dt in date_list %}
+{% for dt in object.list %}
 <h3>{{dt}}</h3> {% endfor %}
 <div id="wrapper">
     <div id="content-wrapper">
