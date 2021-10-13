@@ -4,7 +4,9 @@
 
 {% for date in date_list %}
 <li>
-    <a href="{% url 'blog:post_year_archive' date|date:'Y' %}" class="btn btn-outline-primary btn-sm mx-1">Year{{date|date:"Y"}}</a>
+    <!--    <a href="{% url 'blog:post_year_archive' date|date:'Y' %}" class="btn btn-outline-primary btn-sm mx-1">Year{{date|date:"Y"}}</a>
+-->
+    <a href="{% url 'blog:post_year_archive' date|date:'Y' %}">Year{{date|date:"Y"}}</a>
 </li>
 {% endfor %}
 
