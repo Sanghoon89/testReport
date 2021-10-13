@@ -44,6 +44,7 @@
     <div id="content-wrapper">
         <div class="container-fluid">
             <h2>일일 소산</h2>
+            {{% for date for date_list %}} {{date|date: 'Y-m-d'}} {{% endfor %}}
             <!-- DataTables Example -->
             <div class="card mb-3">
                 <div class="card-header">
