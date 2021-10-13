@@ -110,11 +110,6 @@
 <ul>{{date|date:"Y-m"}}</ul>
 {% endfor %}
 
-<ul>
-    {% for article in latest %}
-    <span><li>{{article.backup_dt|date:"Y-m-d"}}</li></span> {% endfor %}
-</ul>
-
 <tr>
     {% for mon in months %}
     <td><a href="#">{{mon|date:'Y-m'}}</a></td> {% endfor %}
@@ -207,7 +202,7 @@
                 <!-- DataTables Example -->
                 <div class="card mb-3">
                     <div class="card-header">
-                        <i class="fas fa-table"></i><strong> {{daylist.1.backup_dt|date:'Y-m-d(D)'}}</strong></div>
+                        <i class="fas fa-table"></i><strong> {{latest.1.backup_dt|date:'Y-m-d(D)'}}</strong></div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -228,7 +223,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for Log in daylist %}
+                                    {% for Log in latest %}
                                     <tr>
                                         <td>{{forloop.counter}}</td>
                                         <td>{{Log.schedule_tm}}</td>
