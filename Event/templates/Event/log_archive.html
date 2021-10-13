@@ -106,7 +106,9 @@
     };
 </script>
 <h2>TSM 백업 결과</h2>
-{% for date in date_list %} {{date|date:"Y"}} {% endfor %}
+{% for date in date_list %}
+<ul>{{date|date:"Y"}}</ul>
+{% endfor %}
 
 <ul>
     {% for article in latest %}
