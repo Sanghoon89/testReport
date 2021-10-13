@@ -106,6 +106,7 @@
     };
 </script>
 <h2>TSM 백업 결과</h2>
+<!--
 <ul>
     {% for mon in years %}
     <li style="display: inline;">
@@ -113,6 +114,14 @@
     </li>
     {% endfor %}
 </ul>
+-->
+<ul>
+    {% for date in date_list %}
+    <li style="display: inline;">
+        <a href="{% url 'Event:log_year_archive' year|date:'Y' %}"> {{ date|date:"Y" }}</a></li>
+    {% endfor %}
+</ul>
+
 <aside id="main_aside">
     <input id="first" type="radio" name="tab" />
     <input id="second" type="radio" name="tab" checked="checked" />
