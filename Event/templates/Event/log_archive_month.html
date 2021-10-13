@@ -108,14 +108,9 @@
 <h2>TSM 백업 결과</h2>
 {% for date in date_list %}
 <ul>
-    <li>{{day|date:"Y-m-d"}}</li>
+    <li>{{date|date:"Y-m-d"}}</li>
 </ul>
 {% endfor %}
-
-<ul>
-    {% for article in object_list %}
-    <span><li>{{article.backup_dt|date:"Y-m-d"}}</li></span> {% endfor %}
-</ul>
 
 <tr>
     {% for mon in months %}
