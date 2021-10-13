@@ -106,11 +106,13 @@
     };
 </script>
 <h2>TSM 백업 결과</h2>
+{% for date in date_list %} {{date|date:"Y-m"}} {% endfor %}
+
 <tr>
     {% for mon in months %}
     <td><a href="#">{{mon|date:'Y-m'}}</a></td> {% endfor %}
 </tr>
-<aisde id="main_aside">
+<aside id="main_aside">
     <input id="first" type="radio" name="tab" />
     <input id="second" type="radio" name="tab" checked="checked" />
     <section class="buttons">
@@ -257,7 +259,7 @@
     </div>
     <!-- /#wrapper -->
     </sub>
-</aisde>
+</aside>
 
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">

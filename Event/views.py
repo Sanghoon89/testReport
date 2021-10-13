@@ -3,6 +3,9 @@ from django.shortcuts import render
 # Create your views here.
 
 from django.views.generic import ListView, DetailView
+from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView
+from django.views.generic.dates import DayArchiveView, TodayArchiveView
+
 from Event.models import Log
 
 from datetime import date, timedelta
@@ -29,3 +32,24 @@ class LogLV(ListView):
 
     def __str__ (self):
         return self
+
+class LogAV(ArchiveIndexView):
+    model = Log
+    date_field = 'backup_dt'
+
+class LogYAV(YearArchiveView):
+    model = Log
+    date_field = 'backup_dt'
+    make_object_list = True
+
+class LogMAV(MonthArchiveView):
+    model = Log
+    date_field = 'backup_dt'
+
+class LogDAV(DayArchiveView):
+    model = Log
+    date_field = 'backup_dt'
+
+class LogTAV(TodayArchiveView):
+    model = Log
+    date_field = 'backup_dt'
