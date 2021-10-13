@@ -106,9 +106,9 @@
     };
 </script>
 <h2>TSM 백업 결과</h2>
-{% for date in months %}
+{% for date in date_list %}
 <ul>
-    <li>{{date|date:"Y-m"}}</li>
+    <li>{{month|date:"Y-m"}}</li>
 </ul>
 {% endfor %}
 
