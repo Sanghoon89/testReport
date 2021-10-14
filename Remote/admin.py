@@ -13,7 +13,7 @@ class KeepAdmin(admin.ModelAdmin):
     list_filter = ('safein_chk','safeout_chk')
     list_per_page = 20
     search_fields = ('check_dt', 'volume_nm')
-    actions = ('safein_chk','safeout_chk')
+    actions = ('check_safein','check_safeout')
 
     def check_safein(self, request, queryset):
         updated_count = queryset.update(safein_chk='o') #queryset.update
