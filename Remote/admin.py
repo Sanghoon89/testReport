@@ -3,8 +3,9 @@ from django.contrib import admin
 # Register your models here.
 
 from Remote.models import Keep
-from django.utils.safestring import mark_safe
+#from django.utils.safestring import mark_safe
 from datetime import datetime
+from django.db.models import F
 
 @admin.register(Keep)
 class KeepAdmin(admin.ModelAdmin):
@@ -17,7 +18,7 @@ class KeepAdmin(admin.ModelAdmin):
     actions = ('check_safein','check_safeout')
 
     def check_safein(self, request, queryset):
-        updated_count = queryset.update(safein_chk='o', safein_dt=Keep('check_dt')) #queryset.update
+        updated_count = queryset.update(safein_chk='o', safein_dt=F('check_dt')) #queryset.update
         self.message_user(request, '{}건의 볼륨을 입고확인 상태로 변경'.format(updated_count)) #django message framework 활용
     check_safein.short_description = '지정 볼륨을 입고확인 상태로 변경'
 
