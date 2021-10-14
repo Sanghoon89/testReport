@@ -8,9 +8,9 @@ class Keep(models.Model):
     pool_nm = models.CharField('Pool Name', max_length=20)
     cycle = models.IntegerField('Keep Cycle', default=14)
     due_dt = models.DateField('Due Date')
-    safein_chk = models.CharField('Check in coffer', max_length=20, default="X")
+    safein_chk = models.CharField('Check in coffer', max_length=1, default="X")
     safein_dt = models.DateField('Safe-in Date', null=True, blank=True)
-    safeout_chk = models.CharField('Check out coffer', max_length=20, default="X")
+    safeout_chk = models.CharField('Check out coffer', max_length=1, default="X")
     safeout_dt = models.DateField('Safe-out Date', null=True, blank=True)
 
     class Meta:
