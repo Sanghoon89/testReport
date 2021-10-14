@@ -8,6 +8,11 @@ class Keep(models.Model):
         ('x', '입고대기'),
         ('w', 'Withdrawn')
     )
+    Safeout_CHOICES = (
+        ('o', '출고확인'),
+        ('x', '출고대기'),
+        ('w', 'Withdrawn')
+    )
     check_dt = models.DateField('Check-out Date')
     volume_nm = models.CharField('Tape Volume Name', max_length=20)
     pool_nm = models.CharField('Pool Name', max_length=20)
@@ -15,7 +20,7 @@ class Keep(models.Model):
     due_dt = models.DateField('Due Date')
     safein_chk = models.CharField('Check in coffer', max_length=1, default="x", choices=Safein_CHOICES)
     safein_dt = models.DateField('Safe-in Date', null=True, blank=True)
-    safeout_chk = models.CharField('Check out coffer', max_length=1, default="x")
+    safeout_chk = models.CharField('Check out coffer', max_length=1, default="x", choices=Safeout_CHOICES)
     safeout_dt = models.DateField('Safe-out Date', null=True, blank=True)
 
     class Meta:

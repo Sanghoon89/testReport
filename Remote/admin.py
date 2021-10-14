@@ -6,9 +6,19 @@ from Remote.models import Keep
 
 @admin.register(Keep)
 class KeepAdmin(admin.ModelAdmin):
-    list_display = ('check_dt', 'volume_nm', 'due_dt', 'safein_chk', 'safeout_chk','safein_dt', 'safeout_dt', 'pool_nm', 'cycle',) # 변경
+    list_display = ('check_dt', 'volume_nm', 'pool_nm', 'cycle', 'due_dt', 'safein_chk', 'safeout_chk','safein_dt', 'safeout_dt',) # 변경
     list_display_links = ('check_dt', 'volume_nm',)
     list_editable = ('safein_chk', 'safeout_chk','safein_dt', 'safeout_dt',)
     list_filter = ('safein_chk','safeout_chk')
     list_per_page = 20
     search_fields = ('check_dt', 'volume_nm')
+
+    def check_safein(self, request, queryset):
+        updated_count = queryset.update(safein_chk='o') #queryset.update
+        self.message_user(request, '{}건의 포스팅을 Published 상태로 변경'.format(updated_count)) #django message framework 활용
+    check_safein.short_description = '지정 리스트를 입고확인 상태로 변경'
+
+    def check_safeout(self, request, queryset):
+        updated_count = queryset.update(safeout_chk='o') #queryset.update
+        self.message_user(request, '{}건의 포스팅을 Published 상태로 변경'.format(updated_count)) #django message framework 활용
+    check_safeout.short_description = '지정 리스트를 출고확인 상태로 변경'
