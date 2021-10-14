@@ -10,4 +10,5 @@ class KeepAdmin(admin.ModelAdmin):
     list_display_link = ('check_dt', 'volume_nm',)
     list_editable = ('safein_chk', 'safeout_chk','safein_dt', 'safeout_dt',)
     list_filter = ('safein_chk','safeout_chk')
+    list_per_page = 20
     search_fields = ('check_dt', 'volume_nm')
