@@ -3,6 +3,7 @@ from django.contrib import admin
 # Register your models here.
 
 from Remote.models import Keep
+from django.utils.safestring import mark_safe
 
 @admin.register(Keep)
 class KeepAdmin(admin.ModelAdmin):
@@ -19,7 +20,7 @@ class KeepAdmin(admin.ModelAdmin):
         self.message_user(request, '{}건의 포스팅을 Published 상태로 변경'.format(updated_count)) #django message framework 활용
     check_safein.short_description = '지정 리스트를 입고확인 상태로 변경'
 
-    def check_safeout(self, request, queryset):
-        updated_count = queryset.update(safeout_chk='o') #queryset.update
-        self.message_user(request, '{}건의 포스팅을 Published 상태로 변경'.format(updated_count)) #django message framework 활용
-    check_safeout.short_description = '지정 리스트를 출고확인 상태로 변경'
+#    def check_safeout(self, request, queryset):
+#        updated_count = queryset.update(safeout_chk='o') #queryset.update
+#        self.message_user(request, '{}건의 포스팅을 Published 상태로 변경'.format(updated_count)) #django message framework 활용
+#    check_safeout.short_description = '지정 리스트를 출고확인 상태로 변경'

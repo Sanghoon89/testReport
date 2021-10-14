@@ -5,12 +5,12 @@ from django.db import models
 class Keep(models.Model):
     Safein_CHOICES = (
         ('o', '입고확인'),
-        ('x', '입고대기'),
+        ('x', '대기'),
         ('w', 'Withdrawn')
     )
     Safeout_CHOICES = (
         ('o', '출고확인'),
-        ('x', '출고대기'),
+        ('x', '대기'),
         ('w', 'Withdrawn')
     )
     check_dt = models.DateField('Check-out Date')
