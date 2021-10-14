@@ -17,7 +17,7 @@ class KeepAdmin(admin.ModelAdmin):
     actions = ('check_safein','check_safeout')
 
     def check_safein(self, request, queryset):
-        check_date=self.check_dt
+        check_date=queryset.select('check_dt')
         updated_count = queryset.update(safein_chk='o', safein_dt=check_date) #queryset.update
         self.message_user(request, '{}건의 포스팅을 Published 상태로 변경'.format(updated_count)) #django message framework 활용
     check_safein.short_description = '지정 볼륨을 입고확인 상태로 변경'
