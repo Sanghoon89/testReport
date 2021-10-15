@@ -6,13 +6,16 @@ from Remote.models import Keep
 #from django.utils.safestring import mark_safe
 from datetime import datetime
 from django.db.models import F
+from rangefilter.filter import DateRangeFilter, DateTimeRangeFilter
 
 @admin.register(Keep)
 class KeepAdmin(admin.ModelAdmin):
-    list_display = ('check_dt','volume_nm','pool_nm','cycle','due_dt','safein_chk','safein_dt','safeout_chk','safeout_dt',) # 변경
+    list_display = ('check_dt','volume_nm','pool_nm','due_dt','safein_chk','safein_dt','safeout_chk','safeout_dt',) # 변경
     list_display_links = ('check_dt', 'volume_nm',)
     list_editable = ('safein_chk', 'safeout_chk','safein_dt', 'safeout_dt',)
-    list_filter = ('safein_chk','safeout_chk')
+    list_filter = ('safein_chk','safeout_chk',
+                ('check_dt', DateRangeFilter),
+                ('due_dt', DateRangeFilter),)
     list_per_page = 20
     search_fields = ('check_dt', 'volume_nm', 'due_dt',)
     actions = ('check_safein','check_safeout')
