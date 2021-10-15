@@ -4,7 +4,7 @@ from django.contrib import admin
 
 from Remote.models import Keep
 #from django.utils.safestring import mark_safe
-from datetime import datetime
+from datetime import datetime, date
 from django.db.models import F
 from rangefilter.filter import DateRangeFilter, DateTimeRangeFilter
 
@@ -32,7 +32,7 @@ class KeepAdmin(admin.ModelAdmin):
     # If you would like to add a default range filter
     # method pattern "get_rangefilter_{field_name}_default"
     def get_rangefilter_due_dt_default(self, request):
-        return (datetime.date.today(), datetime.date.today())
+        return (date.today(), date.today())
 
     # If you would like to change a title range filter
     # method pattern "get_rangefilter_{field_name}_title"
