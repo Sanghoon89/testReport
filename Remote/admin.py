@@ -29,3 +29,13 @@ class KeepAdmin(admin.ModelAdmin):
         updated_count = queryset.update(safeout_chk='o', safeout_dt=datetime.now()) #queryset.update
         self.message_user(request, f'{updated_count}건의 볼륨을 출고확인 상태로 변경') #django message framework 활용
     check_safeout.short_description = '지정 볼륨 출고확인'
+
+    # If you would like to add a default range filter
+    # method pattern "get_rangefilter_{field_name}_default"
+    def get_rangefilter_due_dt_default(self, request):
+        return (datetime.date.today, datetime.date.today)
+
+    # If you would like to change a title range filter
+    # method pattern "get_rangefilter_{field_name}_title"
+    def get_rangefilter_due_dt_title(self, request, field_path):
+        return '만료일'
