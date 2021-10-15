@@ -20,9 +20,9 @@ class KeepAdmin(admin.ModelAdmin):
     def check_safein(self, request, queryset):
         updated_count = queryset.update(safein_chk='o', safein_dt=F('check_dt')) #queryset.update
         self.message_user(request, '{}건의 볼륨을 입고확인 상태로 변경'.format(updated_count)) #django message framework 활용
-    check_safein.short_description = '지정 볼륨을 입고확인 상태로 변경'
+    check_safein.short_description = '지정 볼륨 입고확인'
 
     def check_safeout(self, request, queryset):
         updated_count = queryset.update(safeout_chk='o', safeout_dt=datetime.now()) #queryset.update
-        self.message_user(request, '{}건의 볼륨을 출고확인 상태로 변경'.format(updated_count)) #django message framework 활용
-    check_safeout.short_description = '지정 볼륨을 출고확인 상태로 변경'
+        self.message_user(request, f'{updated_count}건의 볼륨을 출고확인 상태로 변경') #django message framework 활용
+    check_safeout.short_description = '지정 볼륨 출고확인'
