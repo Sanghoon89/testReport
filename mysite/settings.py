@@ -31,6 +31,7 @@ ALLOWED_HOSTS = [ '*' ]
 # Application definition
 
 INSTALLED_APPS = [
+    'suit',                           # 반드시 'django.contrib.admin' 앞에 추가
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
