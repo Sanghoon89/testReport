@@ -1,7 +1,6 @@
 from django.contrib import admin
 
 # Register your models here.
-
 from Remote.models import Keep
 #from django.utils.safestring import mark_safe
 from datetime import datetime, date
