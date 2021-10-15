@@ -31,10 +31,16 @@ class KeepAdmin(admin.ModelAdmin):
 
     # If you would like to add a default range filter
     # method pattern "get_rangefilter_{field_name}_default"
+    def get_rangefilter_check_dt_default(self, request):
+        return (date.today(), date.today())
+
     def get_rangefilter_due_dt_default(self, request):
         return (date.today(), date.today())
 
     # If you would like to change a title range filter
     # method pattern "get_rangefilter_{field_name}_title"
+    def get_rangefilter_check_dt_title(self, request, field_path):
+        return '소산일'
+
     def get_rangefilter_due_dt_title(self, request, field_path):
         return '만료일'
