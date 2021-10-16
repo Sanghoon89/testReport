@@ -8,9 +8,11 @@ from Remote.models import Keep
 from datetime import date, timedelta
 import locale
 ## 날짜
+Delta=1
+
 locale.setlocale(locale.LC_ALL,'')
 TODAY = date.today().strftime('%Y-%m-%d')
-YESTER = date.today() - timedelta(1)
+YESTER = date.today() - timedelta(Delta)
 YESTERDAY = YESTER.strftime('%Y-%m-%d')
 # YESTERDAY = '2021-10-08'
 
