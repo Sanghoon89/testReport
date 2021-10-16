@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from Remote.models import Keep
 
-from datetime import date, timedelta
+from datetime import datetime, date, timedelta
 import locale
 ## 날짜
 Delta=1
