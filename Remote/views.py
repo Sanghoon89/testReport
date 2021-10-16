@@ -18,7 +18,7 @@ YESTERDAY = YESTER.strftime('%Y-%m-%d')
 
 class KeepLV(ListView):
     model = Keep
-    template_name = 'Remote/main_3.html'
+    template_name = 'Remote/main_2.html'
     context_object_name = 'keeps'
 
     def get_context_data(self, **kwargs):
