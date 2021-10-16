@@ -32,7 +32,6 @@ class KeepAdmin(admin.ModelAdmin):
     # method pattern "get_rangefilter_{field_name}_default"
     def get_rangefilter_check_dt_default(self, request):
         return (date.today(), date.today())
-
     def get_rangefilter_due_dt_default(self, request):
         return (date.today(), date.today())
 
@@ -40,6 +39,5 @@ class KeepAdmin(admin.ModelAdmin):
     # method pattern "get_rangefilter_{field_name}_title"
     def get_rangefilter_check_dt_title(self, request, field_path):
         return '소산일'
-
     def get_rangefilter_due_dt_title(self, request, field_path):
         return '만료일'
