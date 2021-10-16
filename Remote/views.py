@@ -9,6 +9,8 @@ from datetime import date, timedelta
 import locale
 ## 날짜
 Delta=1
+if datatime.datetime.today().weekday() == 0:
+    Delta=3
 
 locale.setlocale(locale.LC_ALL,'')
 TODAY = date.today().strftime('%Y-%m-%d')
