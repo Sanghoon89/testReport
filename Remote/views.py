@@ -9,7 +9,7 @@ from datetime import datetime, date, timedelta
 import locale
 ## 날짜
 Delta=1
-if datatime.datetime.today().weekday() == 0:
+if datetime.datetime.today().weekday() == 0:
     Delta=3
 
 locale.setlocale(locale.LC_ALL,'')
