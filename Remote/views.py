@@ -25,10 +25,10 @@ class KeepLV(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(KeepLV, self).get_context_data(**kwargs)
-        imsi1 = Keep.objects.filter(due_dt__lte=TODAY,safein_chk='O',safeout_chk='X')
-        imsi2 = Keep.objects.filter(due_dt__lte=TODAY,safein_chk='O',safeout_chk='O',safeout_dt=TODAY)
+        imsi1 = Keep.objects.filter(due_dt__lte=TODAY,safein_chk='o',safeout_chk='x')
+        imsi2 = Keep.objects.filter(due_dt__lte=TODAY,safein_chk='o',safeout_chk='o',safeout_dt=TODAY)
         imsi = imsi1 | imsi2
-        context['checkin'] = imsi.order_by('-cycle', '-due_dt', 'volume_nm')
+        context['checkin'] = imsi.order_by('-cycle', 'due_dt', 'volume_nm')
         context['today'] = imsi.order_by('-due_dt')
         imsi = Keep.objects.filter(check_dt=YESTERDAY)
         context['checkout'] = imsi.order_by('-cycle', 'due_dt', 'volume_nm')
