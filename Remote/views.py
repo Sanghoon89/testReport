@@ -30,7 +30,7 @@ class KeepLV(ListView):
         imsi2 = Keep.objects.filter(
             due_dt__lte=TODAY, safein_chk='o', safeout_chk='o', safeout_dt=TODAY)
         imsi = imsi1 | imsi2
-        context['checkin'] = imsi.order_by('-cycle', 'due_dt', 'volume_nm')
+        context['checkin'] = imsi.order_by('-cycle', '-due_dt', 'volume_nm')
         context['today'] = imsi.order_by('-due_dt')
         imsi = Keep.objects.filter(check_dt=YESTERDAY)
         context['checkout'] = imsi.order_by('-cycle', 'due_dt', 'volume_nm')
