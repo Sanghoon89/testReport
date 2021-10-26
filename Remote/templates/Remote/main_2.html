@@ -71,7 +71,7 @@
                   {% elif Keep.safeout_chk == "o" %}
                   <td>출고확인</td>
                   {% else %}
-                  <td>취소</td>
+                  <td>값오류</td>
                   {% endif %}
                   <td>{{Keep.safeout_dt|date:'Y-m-d(D)'}}</td>
                 </tr>
@@ -124,7 +124,13 @@
                   <td>{{Keep.pool_nm}}</td>
                   {% endif %}
                   <td>{{Keep.due_dt|date:'Y-m-d(D)'}}</td>
-                  <td>{{Keep.safein_chk}}</td>
+                  {% if Keep.safein_chk == "x" %}
+                  <td>대기</td>
+                  {% elif Keep.safein_chk == "o" %}
+                  <td>출고확인</td>
+                  {% else %}
+                  <td>값오류</td>
+                  {% endif %}
                   <td>{{Keep.safein_dt|date:'Y-m-d(D)'}}</td>
                 </tr>
                 {% endfor %}
